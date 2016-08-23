@@ -1,0 +1,15 @@
+﻿Design Patterns-19 (State)
+
+State pattern, nesnenizin iç durumunu(state)’inde yapması gerek davranışları birbirinden soyutlamak için oluşturulmuş bir örüntüdür.
+
+Oyun geliştirmede çok kullanılan bir örüntüdür. Oyundaki nesnelerin hareketlerini belli durumlara göre gerçekleştirmeniz gerekir. Nesnenin ilgili durumda yapacağı hareketleri ve davranışları bu State sınıfları belirler
+
+Örneğin Street Fighter oyununa bakalım. Oyunu kodlarken Ryu’nun haraket state’lerini kodlamamız gerekir.
+
+Elimizde State interface’inden türeyen nesneler olması gerekir.
+
+StateIdle, StateWaiting, StateJump gibi.. her bisinin handle() metodu içerisinde ilgili sprite run edilerek nesnenin bir state’den(durumdan) diğer duruma geçmesi sağlanır.
+
+Context bu state’ler arasındaki geçişten sorumludur. Mesela Jumb state’inden sonra Blocking state olmaz, arasında illa Idle state geçmek gerekir şeklinde kurallar var ise bu geçişi Context sınıfı gerçekleştirir.
+
+Constext yapılan isteklerin arkasında ya Oyuncu ya da Yapay zeka vardır. Buna göre Context kendisinden istenen davranışı yerine getirir.

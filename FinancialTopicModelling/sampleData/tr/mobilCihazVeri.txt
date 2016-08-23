@@ -1,0 +1,40 @@
+﻿Mobil Cihazlarda Veri Yönetimi
+
+iPhone veya Android uygulaması geliştiriyorsunuz. 2Tip veri ile çalışmanız gerekebilir.
+
+    Statik
+    Dinamik
+
+Statik: Mobil uygulamanızın içine gömdüğünüz (yazı, resim, layout, video, db vb..) verilerin daha AppStore’lardan indirilirken içerisinde olması ve tüm uygulama boyunca güncellenememesi.
+
+Dinamik: Ya kullanıcı’dan yada internet/bluetooth aracılığı ile sunucu veya başka bir cihazdan gelen verilerdir. Bu veriler 2 tiptir.
+
+A.) Uygulama bellekte tutulduğu sürece tutulan, bellekten silinince silinen veriler.
+
+B.) Uygulama’da saklanması gereken belli bir süre sonra değeri veya geçerliliği kaybolduğunda silinmesi gereken veriler.
+
+Biz B tipindeki veriler ile ilgileniyoruz. Bu verilere örnek vermek gerekirse,
+
+    kullanıcı kodu ve şifresi olabilir veya buna karşılık gelen token
+    internetten indirilmesi zor ve büyük dosyalar
+    internet olmadan da çalışmasını isteyeceğiniz veriler
+    vb..
+
+B Tipindeki Veriler için Güncelleme Yöntemleri
+
+    Timestamp olabilir (Yani belli bir süre sonra geçerliliğini otomatikman yitirsin gibisinden.)
+    Version olabilir (Yeni version’u gördüğünde bunu diğer dosyanın üzerine yaz gibisinden)
+
+Android’te Veri Yönetim Şekilleri
+
+    Shared Preferences
+    Internal Storage
+    External Storage
+    SQLite Databases
+    Network Connection
+
+iOS’ta Veri Yönetim Şekilleri
+
+    Property lists
+    SQLite database
+    Core Data

@@ -1,0 +1,39 @@
+﻿iOS Remote Push Notification 3 (Scalability)
+
+Piyasada Push Notification platformu olarak Urban Airship, Pushwoosh, Parse vb Push Notification platformları bulunmaktadır.
+
+Hatta Parse Facebook tarafından alındıktan sonra popülerliği daha fazla artmış bir sürü firma tarafından da kullanılmaktadır. Bu konuda daha sonra bir yazı daha yazmayı düşünüyorum.
+
+Biz kendi sunucumuzda http://bit.ly/1LiWpG5 ve http://bit.ly/1Kja5N0 yazdığımız yazıların devamı olarak Push Notification performansını ve kullanışlılığını nasıl arttırabileceğimizi anlatacağız.
+
+    Thread Mode
+    Batch Mode
+    Queue Mode
+
+Push Notification Sending With Thread
+
+Push Notification gönderen sınıflarımızı Runnable sınıflardan türeterek ThreadPool’dan alarak çalışmasını sağlatabiliriz. Bu sayede sync olacak bu işlemi async hale getirebiliriz.
+
+Ama bu yöntemin problemi 1000'lerce kişiye Push Notification göndermek istediğinizde sistemde bir sürü Thread oluşturacak ve sistemin yükünü çok fazla arttırarak sistemin çökmesine sebep olabilmektedir.
+
+Bunun yerine kullandığımız kütüphanenin sağladığı iki farklı Push Notification gönderme yöntemi kullanabiliriz. BatchMode ve QueueMode. Bu yöntemler ile sistemde çok fazla Thread oluşturmadan Push Notification göndermenize imkan sağlıyor.
+
+Push Notification Sending Batch Mode
+
+http://bit.ly/1KTzT8d adresindeki BatchApnsService sınıfını kullanarak PushNotification gönderiyor. Algoritma temel olarak her push fonksiyonu çağrıldığında 3işlem yapılıyor.
+
+    ConcurrentLinkedQueue içerisinde daha sonra gönderilsin diye PushMsg atıyor
+    ScheduledExecutorService daha sonra çalıştırılabilmesi için batchRunner atılması
+    batchRunner fonksiyonunda Queue’dan mesaj alınarak APNs gönderilmesi.
+
+Push Notification Sending Queue Mode
+
+http://bit.ly/1izjiu8 bu yöntemde QueuedApnsService sınıfı kullanılıyor. Push Notification msg’ları önce BlockedQueue içerisinde atıyoruz.
+
+Daha sonrasında sayısını sınırlı olarak verebildiğimiz Thread’ler PushNotification mesajlarını kuyruktan alarak APNs async olarak gönderiyor. Servlet3 Aynsc Request handling ile aynı yöntem :)
+
+Inactive Devices Synchronization
+
+Son olarakda performansı arttırmanın bir yöntemi uygulamayı sonradan kullanmayan ve silen kullanıcılara Push Notification mesajı gönderilmesinin engellenmesidir.
+
+Bunu yapan sınıfı sunucu tarafında ekleyelim. Bu sınıf günde 1 kere çalışarak apnService.getInactiveDevices metodu çağırır ve inactiveDeviceToken alarak kendi veritabanımızdan ilgili Device Token inactive duruma çekerek bunlara Push Notification gönderilmemesini sağlayabiliriz.

@@ -1,0 +1,20 @@
+﻿iOS Harita İşlemleri
+
+iOS ’ta kendi bulunduğunuz konumu ortalayacak şekilde harita yüklemek ve bunun yakınlarındaki bir yeri pin’leyerek bu pozisyonu almak istediğimizde nasıl bir geliştirme yapmamız gerekiyor ?
+
+AppName-Info.plist dosyasının içerisine kullanıcının karşısına çıkaracağımız uyarı mesajını girmemiz gerekiyor.
+
+    NSLocationWhenInUseUsageDescription
+    NSLocationAlwaysUsageDescription
+
+Framework’lerin altında MapKit.framework gelebilmesi için Project/Capabilities altındaki Map yeteneğinin Aktif hale getirilmesi gerekmektedir.
+
+Haritayı göstereceğimiz bir UIViewController tanımlıyoruz. Bu sınıf MKMapViewDelegate ve CLLocationManagerDelegate türüyor.
+
+İçerisinde bir mapView bir tanede locationManager tanımlıyoruz.
+
+UIViewController yüklenirken locationManager ve mapView delegation eklenerek kullanıcının lokasyonu alınır ve haritada bu lokasyon merkeze taşınarak ve çevresine 1000, 1000 metre boşluk bırakılarak gösterilmeye başlanır.
+
+[locationManager startUpdatingLocation] konum bilgisinin güncellenmesini ve bu bilgi güncellendikçe aşağıdaki kod tetiklenir ve haritada bu konumu merkeze alıp gösterme işlemi tekrarlanır.
+
+Haritaya pin ekleyebilmek için bir TabGestureRecognizer ekliyoruz. Bu tetiklendiği zaman aşağıdaki HandleLongPressGesture fonksiyonu çağrılıyor. Bu fonksiyon ile kullanıcının haritada işaretlediği pozisyonlar alınıp, mapView projeksiyonunda Lat/Lon değerlerini dönüştürülüp bir pin olarak haritaya ekleniyor.

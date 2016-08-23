@@ -1,0 +1,18 @@
+﻿Docker ve Elastic Container Service ile karşılaştığım problemler
+ECS
+
+Tomcat üzerinde çalıştığım WebApp uygulamasının imajını oluşturup DockerHub gönderdim. Buraya kadar herhangi bir problem yok.
+
+Başka bir EC2 t2.micro makinesi açıp bu imajdan 3,4 tane oluşturduğumda CPU normalin 3 katına çıkmış ve makineye erişemez durumdaydım. Makineye tekrar reboot ederek erişebilir hale gelmiştim. Demek ki öyle istediğiniz kadar Docker 1GB bir t2.micro’da çalıştırmaya çalışmayın.
+
+ECS’ye geçelim aynı imajı kullanan bir TaskDescription oluşturduktan sonra Cluster içerisinde bir Servis oluşturdum. Bu servise 2 tane Task çalışşın dediğimde t2.micro üzerinde 1 task’ı çalıştırırken 2ncisi için Bellek yetersiz hatası verdi. Halbuki TaskDescription Container limitleri 500CPU ve 500MB bellek kullansın demiştim ki bu bir t2.micro üzerinde 2 tane Task’ın çalışabilmesi anlamına gelmeli. Demek ki benim task’larımın dışında EC2'nun üzerinde ECS’nin çalıştırdığı agent benim 2nci bir task çalıştırmama engel oluyordu
+
+Bu problemi ScaleGroup tanımlayarak 2 instance tanımladığımda arka planda ayrıca bir t2.micro instance ayaklandırarak çözdü. Bu sayede 2 task’ın çalıştırdığı Container’lara ayrı, ayrı IP’lerden girerek giriş yapabildim.
+
+Ama isteğimiz arkaplanda servisin tek bir IP’den çıkarak High Available hizmet vermesi. Bunun için Servis update etmek istediğimde bu servise Elastic Load Balancer ekleyebileceğim bir ekran gelmedi. Servis oluşturma işlemlerini tekrarlamam gerekti.
+
+Cluster içerisinde yeni bir Servis oluşturuken bir LB seçmemi sonunda istedi. External ve Inside olmak üzere 2 LoadBalancer oluşturup bunları bu servise tek tek eklememe ve deneme yapmama rağmen LB ‘ı containerlara bağlayamadım.
+
+Bunun üzerine ECS altında t2.micro değilde t2.large çalıştırayım ama içerisinde 2,3 task/container çalıştırayım acaba servis bunlar için içerde kendidi internal bir Load Balancer kuracak mı diye bakmak istediğimde Cluster altına istediğim instance ekleyemediğimiz farkettim.
+
+Bunun için AWS CLI bir yöntem öneriyordu. Bir tane ECS optimised Amazon Linux kurarak EC2 makinesini ayağa kaldırdım. Fakat bunun üzerinde AWS CLI yoktu yum install aws-cli kurup, aws cli configure ettikten sonra bu EC2'yu Cluster register etmek için aşağıdaki metodu kullandım ama çalışmadı.

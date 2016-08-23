@@ -1,0 +1,30 @@
+﻿AWS EC2 Pricing (EC2 Fiyatlandırması)
+
+Amazon’da alacağınız hizmetlerin ne kadar maliyeti olacağının baştan hesaplamanız oldukça önemli. Bunun için AWS’nin aşağıdaki linkte yer alan hesap makinesini kullanabilirsiniz.
+Amazon Web Services Simple Monthly Calculator
+
+The AWS Simple Monthly Calculator helps customers and prospects estimate their monthly AWS bill more efficiently. Using…
+calculator.s3.amazonaws.com
+
+Ben biraz daha örnek ile bu durumu anlatmaya çalışacağım.
+EC2
+
+https://aws.amazon.com/ec2/pricing/
+
+Free Tier kapsamında hiç para harcamadan kullanabileceginiz opsiyonlar bulunur. Bu özellikleri kullanarak deneme amaçlı işlemleriniz parasız AWS üzerinde deneyebilirsiniz.
+
+    t2.micro (Linux, RedHat Enterprise, Suse Enterprise)
+    t2.micro (Microsoft Windows Server)
+    Elastic Load Balancing 15GB veri dağıtımı
+    30 GB Elastic Block Storage 1 GB Snapshot
+    15 GB Bandwidth
+
+On Demand kapsamında kullandığın kadar öde mantığı vardır. Kiraladığınız sunucuların istediğiniz zaman kapatabilirsiniz. Aşağıdaki özellikler sunucunun saatlik ücretinin değişmesine sebep olur.
+
+    Sunucunun özellikleri (Core sayısı, Hesaplama gücü, Bellek , Local Storage)
+    Sunucunun şeçildiği bölge
+    Sunucunun üzerindeki işletim sistemi
+
+Örneğin;
+
+M3 large linux bir makinenin aylık maliyeti 24x30 x 0.158$ = 113$ gelecektir.

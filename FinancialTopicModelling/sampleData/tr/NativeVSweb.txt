@@ -1,0 +1,33 @@
+﻿Native vs Web => Neden ?
+
+Bu soru karşıma sık sık çıkmaya devam ediyor. Bu konuyla ilgili aslında önceden PhoneGap vs Mobile şeklinde bir yazı yazmıştım.
+
+Aslına bakarsanız temel problem şurdan çıkıyor. Ürün sahibi kişi ilk önce Web uygulaması geliştiriyor sonra bu sayfa mobil’de de çalışsın istiyor. Ekranlar çok kalabalık. Bu ekranların mobil de yapılması maliyetli ve zaman gerektiren bir durum.
+
+Sonra biraz daha bu işi zorlayalımda Mobil Native geliştirmeyelim ekranları Responsive yaparız deniyor. Aslında responsive tabletler için iyi bir çözüm olabilir. Özellikle’de ekran ağırlıklı, veri girişi ağırlıklı bir uygulama ise.
+Peki ne zaman HTML kullanmalıyız.
+
+    Şirket içerisinde personelinize kullandıracaksanız.
+    Bu uygulamayı kullanmayı zorunlu tutacaksanız.
+    Veri girişi ve görüntülemenin çok fazla uygulamaların olduğu
+    Cihaz sensor ve aygıtlarının (Camera,GPS,Bluetooth vb..) kullanılmadığı
+
+zaman HTML bir uygulama oldukça faydalı olabilir.
+Peki neden Native kullanmalıyız ?
+
+    Son kullanıcı için yani AppStore ve GooglePlay Store alışkanlıkları olan kullanıcılarda.
+    Store’lardan indirilen uygulamaların çoğu Native’dir. Native UI ile gerçekleştirilmiştir. Bu UI Bileşenlerini alışkanlıkları vardır.
+    Native UI bileşenleri hem daha estetik görünümlü, hem kullanıcı etkileşimi daha iyi, hemde daha performanslı çalışmaktadır (Web uygulamasına göre)
+    Native UI bileşenleri ve Layout tasarımları iPhone ve Android’de farklılık göstermektedir. Tema aynı olsa bu iki platformlardaki görsellik ve davranışlarda farklılıklar vardır. (Web uygulamasında bunu yapamazsınız)
+    Etkileşim şekillerinde ve kullanma şekillerinde farklılıklar gösterir. Buna göre geliştirme yapmak gerekir (Örneğin Android Back Tuşu direk cihazın üzerindedir, Örneğin iPhone Parmak izi tanıma desteği vardır)
+    Kaliteli ve etkileşimli bir Dashboard oluşturabilmeniz için Charts (Line, Pie, Bar vb..) , etkili bir sağ menu yapabilmeniz için ve komplex bileşenler(Takvim vb..) Native uygulama yazmanız gerekir.
+    HTML, PDF, YouTube, Imaj gibi değişik formattaki içeriklerinizi performanslı bir şekilde çalıştırmak için Native uygulama gereklidir.
+    Uygulamanızın bazı kısımlarının Offline çalışmasını , bazı PDF vb.. dosyaların tekrar tekrar yüklenmemesi için LocalStorage kullanmalısınız ve bu kısımlarda Native uygulama kullanmalısınız.
+    Kamera, Telefon Rehberi, Fotograf Albumüne erişmeniz için Native Uygulama gerekir.
+    Bluetooth ve Diger External Device Erişımlerinde Native Uygulama yazmanız gerekir.
+    Çağrı Merkezlerini Araması Telefon aramasına erişim için Native Uygulama gerekir.
+    Push Notification(Bildirim) Gönderebilmeniz için Native Uygulama gerekir.
+    Kullanıcı girişinde ileride iOS Parmak izi desteği istediğinizde Native Uygulama gerekir.
+    Yeri geldiğinde Native Uygulamada HTML sayfaları WebView içerisinde görüntüleyebilirsiniz.
+    Sosyal medya etkileşimi ve paylaşımı Native Uygulamalardan daha rahat bir şekilde Native Uygulama ile gerçekleştirilebilmektedir.
+    Uygulamanın ne kadar kullanıldığı ve alınan yorumları ve analitikleri Store’ların sağladığı hizmetler üzerinden rahatlıkla görebilirsiniz.

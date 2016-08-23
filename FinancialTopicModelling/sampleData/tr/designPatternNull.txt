@@ -1,0 +1,5 @@
+﻿Design Patterns-18 (Null Object)
+
+Object oriented tasarımda bir fonksiyondan nesne beklediğinizde bunu equals işlemine tabi tutacağınızda NullPointerException hatası almamak için her yere isNull veya !=null kontrolü koymanız gerekir. Bu tip kontrollerde kodunuzun okunurluğunu azaltır.
+
+Null Object örüntüsüde bu null kontrollerini ortadan kaldırmak için oluşturulmuş içerisindeki fonksiyonların hiç bir işlem yapmadığı sınıflardır.

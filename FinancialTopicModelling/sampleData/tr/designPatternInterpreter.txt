@@ -1,0 +1,7 @@
+﻿Design Patterns-15 (Interpreter)
+
+Eğer elinizde belli gramer uygun içerik var ise. Örneğin türkçe bir metin, bir şarkının notaları, herhangi bir programlama dili ile kodlanmış bir uygulama, siz bu kurallara göre bu içeriği analiz ederek hiyerarşik ilişkili nesneler(Domain Modelini) oluşturmak istiyorsanız bu örüntü sizin için uygun bir örüntüdür.
+
+Aşağıdaki UML şemasında belirli bir Context var. Client bu Context’i işleyebilmek için bir sürü Expression(İfade yorumlayıcı) tutuyor. Context’i sırası ile bu yorumlayıcılarda işler ve domain nesnelerine dönüştürür.
+
+Aşağıda çalınan bir parçanın müziksel gösterimlerinin analiz edilerek ayrıştırıldığına. Notalar ve Müzik işaretlerine dönüştürüldüğünü görebilirsiniz.

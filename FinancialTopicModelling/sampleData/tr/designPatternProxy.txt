@@ -1,0 +1,11 @@
+﻿Design Patterns-12 (Proxy)
+
+Proxy örüntüsü gerçek nesneye erişimin zor olduğu veya zaman aldığı durumlarda aynı interface implement eden Proxy’sine erişerek geçici olarak işlemlerinizi proxy nesnesi üzerinde yapmanızı sağlar.
+
+Örneğin bir resim dosyasının load edilerek gösterilmesi gerekiyor. Bu resim load edilinceye kadar Proxy sınıfı dummy bir resim göstererek uygulamanın hatalı gibi gözükmesini ortadan kaldırır. Aşağıdaki resimde de gösterildiği gibi Proxy sınıfı gerçek nesne ile aynı arayüzu implement ederek kendisini gerçek bir nesne gibi gösteriyor.
+
+Daha sonrasında da istemci Proxy çağırım yapıyor. Proxy arkasından Gerçek nesneye çağırım yapıyor. Bu sayede;
+
+    Uzakta olan bir nesneye çağrımlarda bunu kullanabiliriz.
+    Gerçek nesneye erişimi sınırlandırmak istiyorsak bunu kullanabiliriz.
+    Gerçek nesnenin fonksiyonaliteyi yerine getirmesinin uzun zaman alacağı işlemlerde bu örüntüyü kullanabiliriz.

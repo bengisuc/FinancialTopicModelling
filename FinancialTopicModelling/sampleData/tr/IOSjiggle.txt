@@ -1,0 +1,11 @@
+﻿iOS Jiggle (Ikonların Hafif Sallanması)
+
+iPhone’da uygulama silmek için bir uygulamanın üzerine uzun süre basılı tutmanız gerekir. Sonrasında uygulama ikonun hafifçe sallanmaya başladığını görürsünüz. Bu animasyonu kendi uygulamamız içerisinde nasıl yapabiliriz ?
+
+http://stackoverflow.com/questions/6604356/ios-icon-jiggle-algorithm adresindeki algoritma ile düğmelere bu animasyonu vermemiz oldukça basit.
+
+CGAffineTransform tanımlayıp buna Translate ve Rotation ekleyip bunu düğmenin transform kısmına atatığımızda hafif sallanma durumu sağlamış oluruz.
+
+CABasicAnimation tanımlayarak bu animasyonu düğmeye verdiğimizde aynı hafif sallantıyı elde edebiliriz.
+
+Peki bu sallantı animasyonunu nasıl durdurabiliriz. Birinci algoritma için Transform animasyonu için verdiğimiz matris yerine IdentityMatris veririz. 2nci algoritma içinde düğme katmanına eklenmiş tüm animasyonları kaldırırız.

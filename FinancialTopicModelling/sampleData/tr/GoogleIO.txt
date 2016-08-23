@@ -1,0 +1,54 @@
+﻿Google I/O 2015
+
+Google I/O 2015 Keynote.
+
+Keynote başındaki animasyon gerçekten güzel olmuş. Minecraft, Doodle ve Limbo oyunu karışımı güzel bir animasyon hazırlamışlar.
+
+Android M Developer Preview deki yeniliklerden bahsedildi.
+
+    App Permision,
+    Web Experience -(Chrome Custom Tabs http://bit.ly/1KxMbS0)
+    App Links
+    Android Pay
+    Fingerprint Support
+    Power and Charging (Doze, USB Type-C)
+
+Android M için Yorum: Pek bir yenilik yoktu. Sadece servis kalitelerini iyileştirme yönünde bir takım geliştirmeler yapılmış Android Pay =Apple Pay , Fingerpring Support = TouchID diğerleride çok ciddi yenilikler değil.
+
+Android Wear
+
+Bu kısımda daha çok Android Watch özelliklerinden bahsedildi.
+
+Saatin üzerindeki bir sürü I/O sayesinde saat ile bir çok farklı uygulama geliştirebilme imkanınız bulunuyor.
+
+Internet Of Things
+
+Akıllı evler, akıllı araçlar birbirleri ile haberleşen akıllı cihazlar. Nest vb IOT cihazları için Project Brillo geliştirmişler.
+
+Bu cihazları akıllı bir şekilde birleştirmek için Android Phone IOT ortasına yerleştirdiğini. Kullanıcının sesli olarak sorduğu bir sorunun cevabını verebilmek için NLP, Machine Learning, Image Processing, Deep Neural Networks kullandıklarını. Bunun üzerine’de Google Now akıllı asistanı geliştirdiklerini Context bazlı kullanıcıya öneriler sunun yardım eden bir asistan geliştirdiklerinden bahsediyor.
+
+Google Now
+
+Akıllı asistan 3 adımda geliştirdiklerinden bahsediyor.
+
+    Context’i anlama (Mağza ne zaman açılacak?, Uçak ne zaman kalkacak?)
+    Proaktif olarak size cevaplar üretmek ( Knowledge graph 1 Billion Entities)
+    Bu eylemi gerçekleştirebilmek için size yardım etmesi
+
+Telefonda uygulama kullanırken çalıştığınız uygulamayı terketmeden nasıl basit soru sorup cevap alabilirsiniz. Now on Tap teknolojisi buna izin verecek.
+
+Google Photos
+
+Android , IOS ve Web’de olan fotoğraflarınızı daha etkin şekilde kullanabileceğiniz bir uygulama.
+
+Google Translation
+
+Google’ın bence en başarılı olduğu konulardan birisi metin, konuşma ve görüntüyü farklı dillerden farklı dillere dönüştürebilmesi..
+
+Android One, Offline Access Android Studio yenilikler.
+
+Virtual Reality
+Cardboard ve sağladıkları konusunda https://www.google.com/get/cardboard/
+
+Driverless Car, Project Loon
+Sürücüsüz arabalar ve Interneti dünyanın her yerinden erişebilir hale getirmek için geliştirdikleri Loon Projesinden bahsedildi.

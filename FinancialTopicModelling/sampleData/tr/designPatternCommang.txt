@@ -1,0 +1,11 @@
+﻿Design Patterns-14 (Command)
+
+Command pattern denilince Word, Photoshop, Maya benzeri uygulamalar aklıma geliyor. Çünkü tüm bu araçlarda yaptığınız işleri geri alma (Undo) veya yaptığınız işleri gruplayarak tekrar çalıştırma (Macro) ihtiyacı vardır.
+
+Bu örüntüyü basit bir Word örneği ile anlatalım.(http://bit.ly/1OrBAuC ) Elimizde bir Document nesnesi var. Ve Document nesnesi TextBox içerisindeki metni değiştirerek Bold, Italic, Underline haline getiriyor.
+
+Command yapımızı tanımlıyoruz. Command örüntüsü için en önemli konu execute() fonksiyonu, yani işlemi gerçekleştirildiği fonksiyon. Birde bu işlemi geriye alabilmek için undo() fonksiyonunu tanımlıyoruz.
+
+Birçok UndoableCommand sınıfımız olabilir. BoldCommand, ItalicCommand, UnderscoreCommand, CopyCommand gibi. Bu Command sınıfı dokümanın değiştirilmeden önceki state tutuyorki undo() işlemi sonrasında yaptığı işlemi geri alabilsin. execute() fonksiyonunda da Dokuman nesnesi üzerinden ilgili işlemi gerçekleştiriyor.
+
+Command Manager sınıfı çalıştırılmak istenen komutları Stack veriyapısında tutuyorki , undo işlemi sırasında en son yapılandan eskiye doğru yapılan işlemleri geriye alabilsin.

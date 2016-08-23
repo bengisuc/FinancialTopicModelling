@@ -1,0 +1,22 @@
+﻿Design Patterns-20 (Strategy)
+
+Strategy pattern sizin nesnenizin içindeki davranışı soyutlayıp dışarıdan nesneye ekleyerek çalıştırmanızı sağlar.
+
+Örneğin Bir arene’da savaşan 3 tane robotunuz olsun. Bunların 3 tip farklı davranış içerisinde hareket etmesini istiyorsunuz.
+
+    Normal Davranış: Normal hızla gezinir. Çevresinde gezen robotları aldırmaz. Rastgele hareket eder.
+    Defansif Davranış: Yavaş hareket eder. Çevresinde gezen robotlar belli bir yakınlığa geldiğinde uzaklaşır.
+    Agrasif Davranış: Hızlı hareket eder. Çevresinde gezen robot farkettiğinde üzerine doğru hareket eder.
+
+Bunun için birinci yöntem Robot sınıfının içerisinde switch/case yazıp davranış mantıkları bu sınıf içerisinde yazdığınızda aşağıda ki 2 problem ile karşılaşırsınız.
+
+    Robot’a yeni bir davranış eklemek için Robot nesnesini güncellemeniz gerekir.
+    Bu davranışı Robot dışında bir nesnede kullanmak istereniz kodu kopyalayıp/yapıştırmanız gerekir.
+
+Aşağıdaki kodda IBehaviour interface bizim soyutlamak istediğimiz davranışı yani Robot’un move fonksiyonunu soyutlar.
+
+Bundan türeyen 3 tip davranış var. Robot nesnesi kendisine atanan davranışı Stratejisini çalıştırarak hareketini gerçekleştirir. Bu sayede Robot hangi hareketi yapacağı konusunda bir mantığı içerisinde barındırmaz.
+
+    AgressiveBehaviour
+    DefensiveBehaviour
+    NormalBehaviour

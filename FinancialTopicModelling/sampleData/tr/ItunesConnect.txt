@@ -1,0 +1,38 @@
+﻿iTunes Connect App Status
+
+iTunes Connect’de yer alan renkli noktalar uygulamalarınızın durumunu belirtir.
+
+Kırmızı Nokta: Uygulamanızın AppStore’ da yer alabilmesi için sizin bir takım işlemler ve düzeltmeler yapmanız gerektiğini belirtir.
+
+Sarı Nokta: Uygulamanın AppStore’a koyulma yönünde ilerlediğini, sizin veya Apple’ın bu süreci devam ettirmek için bir takım işlemler yaptığını belirtir.
+
+Yeşil Nokta: (Ready For Sale). Uygulmanın AppStore indirilmeye ve satışa hazır olduğunu belirtir.
+App Status
+
+Uygulamanın alabiceği durumlar aşağıda listelenmiştir.
+
+Prepare for Submission: Uygulamanızı iTunes Connect record olarak attınız ve MetaData configurasyonu ile uğraşıyorsunuz. Uygulamanın ekran görüntüleri, Fiyatı, Reklam vb ayarlamalarını yaptığınız süreçtir. Review(Gözden geçirme) için Submit etmeden önceki süreçtir özetle..
+
+Waiting For Review: Uygulamanızı Review(Gözden Geçirme) için gönderdiniz. Apple henüz gözden geçirme işlemlerini başlatmadı. Bu süreçte kaydınız ile ilgili belli alanları değiştirebilir veya uygulama review kuyruğundan çıkarabilirsiniz.
+
+In Review: Uygulamanız Apple tarafından Review sürecine alındı. Ama gözden geçirmenin ne sürede biteceği, hangi saatte yapılacağı bilgisi verilmez. Bu aşamada da uygulamanızı review kuyruğundan çıkarabilirsiniz.
+
+Pending Contract: Uygulamanız gözden geçirilmiş ve AppStore’da yer almaya hazır ama Sözleşmeniz ile ilgili eksiklikler var. iTunes Connect’ten ilgili kısma girerek sözleşme ile ilgili eksiklikleri gidermeniz gerekir.
+
+Waiting For Export Compliance: …
+
+Pending Developer Release: Uygulamanız onay sürecinden geçtikten sonra Apple tarafından otomatik olarak AppStore koymasın, biz manual olarak bu işlemi seçtiyseniz. Siz uygulamayı AppStore koyuncaya kadar uygulamanız bu aşamada bekletilir.
+
+Ready For Sale: Uygulamanızın AppStore’da satışa sunulduğu süreçtir. Bu süreçte uygulamanızın AppStore’dan kaldırılma isteğinde bulunabilirsiniz. 24 saat içerisinde uygulamanız Store’dan kaldırılacaktır. Veya uygulamanızın yeni bir sürüm ile güncellenmesini isteyebilirsiniz. Yeni sürüm için başta yaptığınız adımların hepsini tekrarlamanız gerekir.
+
+Rejected: Apple gözden geçirmeler sonucunda uygulamanız ile ilgili bir uygunsuzluk bulduğu durumda uygulamanızın durumunu rejected konumuna getirip. Neden bu durumda olduğu konusunda Admin ve Teknik Rol’deki kişileri uyarır.
+
+Metadata Rejected: iTunes Connect’den girdiğiniz içerik verisinin AppStore’da gösterilmesinin uygun bulunmadığı durumda uygulamanızın durumu bu hale getirilir.
+
+Removed From Sale:Apple uygulamanız’ın Store’da bir risk oluşturduğunu düşünür ise uygulamanızı Store’dan kaldırdığı durumdur. Bu durum öncesinde problemin çözümü için sizin ile irtibat kurar.
+
+Developer Rejected: Geliştirici kendi isteği ile review(gözden geçirme) sürecinden çıkardığı durumda oluşun uygulama durumudur. Bu süreçten çıkmak için yeni build alınması ve bu buildin Submit edilmesi gerekmektedir.
+
+Developer Removed From Sale: Uygulama AppStore’dayken satışının durdurulduğu durumdur.
+
+Invalid Binary : Binary verisinin uyumsuz olduğunda uygulamanın aldığı durumdur. Bu durumda build’i silip yenisinin yüklenmesi gerekir.

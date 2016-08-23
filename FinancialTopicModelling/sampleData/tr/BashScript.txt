@@ -1,0 +1,11 @@
+Bash Script ile AWS RDS MySQL üzerine kendi backup veritanýný yükleme
+
+Daha önceki yazýlarda Webmin ve MySQL kurulumunu anlatmýþtým. Bunun için EC2 makine alýp bunun üzerine arayüzden MySQL kurmak gerekiyor. Fakat Backup, Replike ve bu Backup’lardan geri dönme iþlemleri RDS servisleri aracýlýðý ile daha basit bir þekilde yapýlabiliyor.
+
+Bu nedenle Business (Web App) kýsmýný EC2 üzerinde gerçekleþtirirken, veritabaný iþlemleri kýsmýnda RDS’yi kullanmak daha avantajlý.
+
+Öncelikle AWS CLI kullanmak için EC2 makinelerinden Amazon AMI ile birtane instance oluþturup veya local’inize AWS CLI kurarak gerçekleþtirebilirsiniz.
+
+AWS CLI Configurasyonunu Gerçekleþtirme
+
+AWS CLI kullanabilmeniz için aþaðýdaki bilgileri girmeniz gerekmektedir. Access Key’ler için AWS Security Credentials altýndan eriþebilir ve oluþturabilirsiniz. Region bölgenizide seçerek AWS CLI kullanýlabilir hale getirin.

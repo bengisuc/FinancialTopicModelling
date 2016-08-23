@@ -1,0 +1,16 @@
+﻿Android ve iOS Uygulama Güncelleme Farklılıklar
+
+Android ve iOS arasında uygulama güncellemede bazı farklılıklar bulunuyor.
+
+iOS’ta
+
+    AppStore yeni bir versiyon oluşturuyorsun. Bir önceki versiyonun bir kopyası bu.
+    Bu kopyada ekran görüntüleri, içerik, build ile ilgili kısımları değiştirip AppStore Onay için gönderiyorsun.
+    En geç 6–15 gün içerisinde uygulamanın uygunluğu ile ilgili cevap geliyor.
+    Store yeni versiyonu yayınlıyorsun.
+
+Android’te
+
+    Yeni bir versiyon oluşturma yok. Mevcut vitrin ve APK üzerinde gerekli değişiklikleri yapıyorsun.
+    Google Play Store güncelleme gönderiyorsun.
+    Güncelleme 1–2 saat içerisinde gerçekleşiyor.

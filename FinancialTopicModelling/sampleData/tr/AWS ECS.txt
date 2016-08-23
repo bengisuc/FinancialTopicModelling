@@ -1,0 +1,9 @@
+﻿AWS ECS (Elastic Container Service)
+
+Amazon’un yeni sunduğu ECS servisi, basit olarak Docker Container’larının EC2 üzerinde çalıştırılmasını, deployment ve yönetimini sağlayan bir servistir. Docker konusunda fikriniz yok ise daha önceden yazmış olduğum şu yazıya göz gezdirmenizi öneririm.
+
+Peki neden EC2 üzerinde kendi Docker container’larımızı çalıştır mıyoruz ? Bir tane EC2 linux makinesi alıp üzerine Docker kurup , docker container’larımı bu EC2 makinesinde çalıştırabilirim. Ayrıca neden ECS gibi bir servise ihtiyacınız olsun .Bize ne gibi faydaları var.
+
+    AWS üzerinde hangi servislerinizin çalıştığını bu servislere bağlı hangi tasklarınızın(containerların) çalıştığını görebilirsiniz. Çalışamayan tasklarınızı görüntüleyebilir ve bunlar için gerekli önlemleri alabilirsiniz.
+    AWS servislerinden Elastic Load Balancing ve Metric değerlerine göre servislerinizi AutoScale bir hale getirebilirsiniz.
+    ELB oluşturduğunuz Container,Task seviyesindeki yük dağılımını yapmasını sağlatabilirsiniz.

@@ -1,0 +1,18 @@
+﻿Design Patterns-16 (Mediator)
+
+Mediator patterni gerçek hayattan alınmış bir örüntüdür. Havadaki uçakların rotaları ve birbirleri ile konuşması yerine, yer istasyonları ile iletişim kurarak belli bir merkezlerden yönetilmeleri sağlanır.
+
+Bu sayade havadaki binlerce uçağın birbirleri ile konuşmalarak oluşturacakları karmaşıklığın önüne geçilmiş olur. Problem merkezileştirilerek çözülür.
+
+Yazılımda da benzer durumlar ile zaman zaman karşılaşırız. Örneğin Müşterek Elektronik Harp Simulasyon geliştiriken benzer bir problem ile karşı karşıya gelmiştik. Arayüz uygulamamızın bir çok bileşeni ve bu bileşenlerin birbirleri ile konuşması gerekiyordu.
+
+    Menuler,
+    Toolbar
+    EH nesnelerini tutan modeller
+    Harita Katmanı
+    2 Boyutlu Radar Scope’lar
+    3D Visualization Ekranları
+    Model parametrelerinin gösterildiği ekranlar
+    vb.. bir sürü bileşen olduğunu düşünün.
+
+Uygulamanın merkezine bir ScreenMediator nesnesi oluşturarak tüm nesnelerin birbirinden habersisiz hayatlarına devam etmesini sağlamıştık. Bu bir yaklaşım da bileşenlerin oldukça sade ve basit geliştirilmesini sağlarken tüm iletişim ve koordinasyon yoğunluğu Merkezi nesnenin üzerine bindiğini görebiliriz. Merkezi nesne büyür, karmaşıklık artar. Diğer bir yöntem de Observer örüntüsü bunu daha sonraki yazılarımda anlatacağım.

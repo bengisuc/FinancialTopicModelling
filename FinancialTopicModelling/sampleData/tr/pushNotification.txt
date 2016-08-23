@@ -1,0 +1,24 @@
+﻿Push Notification(Bildirimleriniz) Kullanıcıya Ulaşması Kesin midir ?
+
+Gönderdiğiniz Push Notification kullanıcılarınıza kesin bir şekilde ulaşmasını sağlayabilir misiniz ?
+Bildirim İzninin Verilmesi
+
+iPhone uygulaması store’dan indirilip çalıştırıldığında kullanıcıdan onay alınır . Kullanıcı bu onayı verdiğinde cep telefonu AppID+Version+DeviceId için bir RegisterID oluşturur. Bu anahtar uygulama sunucusuna gönderilir. Kullanıcı bu bildirim alma işlemini onaylamamış ise RegisterID oluşturulmadığı durumlarda bu kişilere bildirim gönderilmez.
+
+iPhone kullanıcısı daha sonradan ayarlar Bildirimler altından uygulamanın Bildirimlere izin ver yeteneğini kapatmışsa Bu kişilere bildirimler gitmez.
+
+Android uygulaması bu RegisterId kullanıcıdan uygulama Store’dan indirilirken zorunlu olarak ister. Yani Android’de bir registerID default olarak oluşturulup sunucuya iletilir.
+
+Android Ayarlar/Uygulama Yönetici/İlgili uygulama altından Bildirimleri Göster yeteneğini kaptmış ise bu kişilere bildirim gitmez.
+
+Not: Telefonların oluşturduğu RegisterID aşağıdaki şekilde dir. Apple ve Google tarafından oluşturulur.
+
+Örneğin 43ccc9a747143509f2c310a9181fdcdfd911cf76c69b5ee1e6d8df091cccf100 . Sunucu tarafında hangi telefonun hangi RegisterID’sine sahip olduğunu bilemeyiz. Login mekanizması olmayan bir uygulama olduğunu düşünün. Bu RegisterID’nin hangi telefona ait olduğunu Apple veya Google bilir. Sunucu tarafında sadece bu RegisterID’lerin saklanır.
+Bildirim Gönderme
+
+Bildirim gönderme sırasında Web arayüzünden girdiğiniz Bildirim Mesajı Sunucu veritabanında bulunan tüm RegisterID’ler için Apple ise APN(Apple Push Notification) Google ise GCM(Google Cloud Messaging) tek tek gönderilir. Bu işlem sırasında bir hata / exception oluşmuş ise bu bilgi sunucu tarafındaki Log’lardan görülebilir .
+
+Bildirimler Apple ve Google tarafından alındıktan sonra Queue (Kuyruğa atılırlar) Apple ve Google bu mesajları ilgili kuyruktan alarak RegisterID’lerin oldukları cihazlara gönderilirler Apple ve Google Sırası ve iletimi konusunda mesajların gideceğine dair bir garanti vermez.
+Offline Mod
+
+Apple Mesajın gönderildiği sırada alıcı telefonun interneti yok ise telefon tekrar internete bağlanıncaya kadar arada birden fazla bildirim atıldıysa aradaki bildirimleri siler. Sadece en son bildirimi belli bir süreliğine tutarak en son bildirimi cihaz internete bağlanınca göndermeye çalışır. Bildirim’lerin kuyrukta tutulma süreleri var. Bundan dolayı internete bağlı olmayan cihazlar push notification alamayabilirler.

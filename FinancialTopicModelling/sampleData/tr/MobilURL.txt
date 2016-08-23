@@ -1,0 +1,23 @@
+﻿URL Linki ile Mobil Uygulamanın Açılması (Deep Linking)
+
+Bir mobil uygulama geliştirdiniz,
+
+Senaryo 1
+
+Kullanıcı kaydı yapan kişilere aktivasyon maili attıyorsunuz. Kullanıcı aktivasyon mailini tıkladıktan sonra direk mobil uygulamanın açılmasını ve kullanıcının sistemin içerisine giriş yapmasını bekliyoruz. Bunun için verilen URL linki hem uygulamayı tetiklemeli, hemde bu linkte yer alan kullanıcı token vb. parametreleri mobil uygulamanın içerisine aktarmalı.
+
+Senaryo 2
+
+Uygulama içerisinden dışarıya public bir sayfanın linki paylaşıldığında diğer kişiler sosyal medyadan bu linke tıkladıklarında uygulamanızın bir web sayfası mevcut ise bu sayfa browser içerisinde görüntülenir. Kullanıcı eğer mobil bir cihazdan bu web sayfasına girmiş ise sayfanın üzerine , sayfanın native uygulama içerisinde açılabilmesi için bir link konulabilir.
+
+IOS
+
+IOS’ta bu işlem için Info.plist içerisine URL Types şeklinde bir satır eklenir. Bu satırın içerisinde aşağıdaki gibi proje appID ve schema olarak hangi kelime il uygulamayı açacak isek o isim girilir. Biz aşağıda xxx kelimesini giriyoruz
+
+Bunun karşılığı olarak kodda bu URL scheması ile bir çağrım yapılması durumunda uygulamanın aktif olması ve bu URL parse edebilmesi için openURL fonksiyonu override edilerek URL çağrımı durumunda ne yapılacağına karar verilir.
+
+Android
+
+Android’de bu işlemi yapmak için Android.manifest dosyasında, bu link tıklanınca hangi aktivite açılacaksa o tanım içerisine aşağıdaki şekilde IntentFilter tanımlanır.
+
+İkinci yapılacak işlem DefinePasswordActivity içerisine onCreate metoduna aşağıdaki kodu eklemek. Bu kod sayesinde xxx ile gelen link parametreleri parse edilerek gerekli işlemler yapılabilir.

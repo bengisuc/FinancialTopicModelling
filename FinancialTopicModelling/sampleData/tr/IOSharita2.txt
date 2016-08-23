@@ -1,0 +1,9 @@
+﻿iOS Harita İşlemleri -2
+
+Bir önceki yazımda Haritayı nasıl sizin bulunduğunuz lokasyona göre merkeze taşıdığımızı ve bu harita üzerine nasıl bir pin koyduğumuzu anlatmıştık.
+
+Bu yazıda bu pin’leri nasıl farklı bir görüntü verebileceğimizi ve bu pin’i örneğin tam istediğimiz konuma koyamadığımız durumda nasıl sürükleyerek istediğimiz pozisyona taşılabileceğimizi anlatacağım.
+
+Öncelikle yapmamız gereken bir önceki MapViewDelegate oluşturduğumuz kısma viewForAnnotation metodu içerisine kendi pin resmini koyduğumuz view dönmemiz. Sonra bu pin draggable yeteneğini aktif hale getirmemiz gerekiyor.
+
+Eklenen pin’in sürüklenerek bir yere taşınması sonucunda pin’in en son durduğu pozisyonu alarak istediğiniz gibi saklayabilirsiniz.

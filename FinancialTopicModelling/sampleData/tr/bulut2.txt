@@ -1,0 +1,27 @@
+﻿Bulut Bilişim Marketi ve Diğer Teknoloji Devleri
+
+Bu yazıda 2015'de yazılmış 2 tane makeleyi yorumlamak istiyorum.
+
+Cloud Computing Marketing Leaders,2015
+
+Dell. EMC. HP. Cisco. These Tech Giants Are the Walking Dead
+
+1nci makaleden anlaşılacağı gibi AWS Bulut Bilişimin lideri konumunda ve onu en yakından Microsoft takip ediyor.
+
+2nci makelede ise Dell, EMC, HP, Cisco, IBM, Oracle gibi dev teknoloji şirketlerinin yürüyen ölülere dönüştükleri.
+
+    Sunucu ve Storage satışına eskisi gibi ihtiyaç duyulmayacak.
+    Network ekipmanlarına ve bu konudaki deneyimi bulut hizmetleri karşılayacak.
+    İlişkili veritabanları hem pahalı hemde rahat bir şekilde ölçeklenebilir bir yapıda değil. Bunun yerine daha kolay dağıtık çalışabilen NoSQL veritabanlarına yönelmeler gerçekleşicek.
+
+Yukarıdaki 3 madde’den AWS ve MS’un diğer firmaların pazarlarından pay aldığını ve daralttığını rahatlıkla görebiliriz. Bunun için IBM son yıllarda Cloud ve iOT çok büyük yatırımlar yapıyor Dell EMC satın aldı vb..
+
+Özetle innovative olmayan firmalar çok hızlı çöküyor. Bunun örneğini;
+
+Cep Telefonu tarafında çok net gördük Nokia, Blackberry, Motorola gibi büyük cep telefonları üreticilerinin çok kısa zamanda markalarının yok olduğu gibi. Bunlar yerine Apple, Samsung gibi devler çıktı.
+
+Arama Motorları tarafında çok net gördük ki , Altavista, Yahoo’nun zaman için yok olduğunu. Bunlar yerine Google, Yandex’ın çıktığı.
+
+Sunucu: Bir zamanlar Oracle satın almadan önce Sun Microsystems vardı.
+
+Kurumsal Yazılım tarafında işler daha yavaş ilerliyor. Ortaklıklar ve üzerinde çalışan sistemlerin yenilenme ihtiyacı olmadığı sürece mevcut teknolojiler ile şirketler devam edecektir. Ne zaman ki eski teknolojiler ihtiyaçları karşılamayacak veya maliyetleri çok yüksek olacak bu durumda şirketler alternatif çözüm yollarına gideceklerdir. Kendini yenileyemeyen firmaları bırakıp daha ucuza, daha iyi hizmet veren teknoloji firmalarına yönelmeye başlayacaklardır.

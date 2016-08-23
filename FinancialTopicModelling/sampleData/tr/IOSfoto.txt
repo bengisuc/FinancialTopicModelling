@@ -1,0 +1,9 @@
+﻿iOS Fotoğraf Albümü ve Kameraya Erişim
+
+iOS’tan fotoğraf albümüne veya kameraya erişip buradan bir fotoğraf seçip uygulama içerisinden kullanmak istiyorsunuz.
+
+Bunun için öncelikle UIImagePickerController sınıfı tanımlıyoruz. Bu kontroller fotoğrafı çekmemizi veya fotoğraf albümünden resmi almamızı sağlayacak. Her zamanki gibi UIViewController sınıfımızı UIImagePickerControllerDelegate türeterek bu Controller’dan gelen eventleri yakalamaya çalışacağız.
+
+viewDidLoad fonksiyonunda UIImagePickerController oluşturup bunun delegate olarak kendi UIViewController veriyoruz. Kullanıcı kamerayı kullanmak isterse takePhoto fonksiyonundaki gibi SourceType: UIImagePickerControllerSourceTypeCamera eğer kullanıcı fotoğraf albümündeki bir fotoğrafı kullanmak isterse SourceType: UIImagePickerControllerSourceTypePhotoLibrary atamamız gerekiyor. Şu anki aktif UIViewController olarak imgPickerController vermemiz yeterli
+
+Bütün bu işlemlerden sonra kullanıcının fotoğraf albümünden veya kameradan fotoğraf çekmesinden sonra didFinishPickingMediaWithInfo fonksiyonu çağrılır. Bu fonksiyona gönderilen bilgileri ve resim içeriğini kullanarak uygulamamızda istediğimiz şekilde kullanabiliriz.

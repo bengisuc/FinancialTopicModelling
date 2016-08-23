@@ -1,0 +1,13 @@
+﻿Design Patterns-21 (Template Method)
+
+Template Method pattern Abstract sınıf içerisinde diğer fonksiyonların belli bir sıra ile çağrılma zorunluluğu var ise bu sınıf final hale getirilerek Abstract sınıftan extend eden SubClass’ların bu Template Methodu değiştirilmesi engellenir.
+
+Örneğin Worker Abstract sınıfındaki DailyRoutine() template methoddur. Bu method içerisinde sıra ile aşağıdaki fonksiyonlar çağrılır ve bu fonksiyon değiştirilemez.
+
+    getUp
+    eatBreakfast
+    goToWork
+    work
+    returnToHome
+    relex
+    sleep

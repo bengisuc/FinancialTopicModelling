@@ -1,0 +1,8 @@
+﻿Design Patterns-23 (Iterator)
+
+Iterator örüntüsü Collection sınıflarında (List, Stack, Queue, Map, Set vb..) elemanlarına sıralı erişmek için kullanılan bir soyutlama örüntüsüdür. Aşağıdaki 2 metodu gerçekleştirerek veri yapıları elemanları arasında gezinmeyi sağlar.
+
+    hasNext(): Sonraki eleman var mı ?
+    next(): Sonraki elemana getir.
+
+BooksCollection sınıfı içerisinde elemanlar arasında gezinmeyi BookIterator sınıfı soyutlaştırır.

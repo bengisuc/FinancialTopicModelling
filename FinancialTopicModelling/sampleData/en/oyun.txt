@@ -1,0 +1,25 @@
+OpenGL renderleme komutlarý içermesine raðmen window systemlerinden ve operating systemlerinden baðýmsýz olarak dezayn edilmiþtir. Bunun sonucunda window açma keyboard ve mouse ile ilgili eventler hakkýnda hiçbir komut içermez ama bu iþlemler yapýlmadanda renderleme ve interaktiflik saðlanmaz. Ýþte GLUT kütüphaneside bu tarz iþleri arka planda gerçekleþmesini saðlar. Artý olarak OpenGL sadece nokta, çizgi ve polygon çizgi çizme gibi basic çizim özelliklerine sahipken GLUT complex üç boyutlu nesneleri(sphere, torus, teapot) çizme yeteneklerine sahiptir(OpenGL Utility Library, GLU kütüphaneside quadraticsler gibi komplex nesneleri(sphere, cylinder, cone) çizim yeteneklerine sahiptir.Yardýmcý yazýlým paketlerinden kast ettiðim oyun için gerekli grafik, ses, müzik ve level dosyalarýnýn hazýrlanmasýnda kullanýlan programlar. Ben burada grafik ile ilgili olanlarý üzerinde durdum. Müzik için SoundForge, Cakewalk, GitarPro, Quake Level Editor, oyun karakterleri için MilkShape gibi yazýlýmlarda bulunmaktadýr.AdobePrimiere: Non-linear video editing yani video görüntülerini parçalayarak onlar üzerinde deðiþiklik yapmanýzý ve tekrar istediðiniz þekilde birleþtirmenizi saðlayan bir grafik yazýlýmýdýr.
+
+AdobeAfterEffects: Video ve resimler üzerinde deðiþik efektler uygulayabilmenizi saðlayacak yardýmcý araçlarý olan bir grafik paketidir.
+
+CorelDraw: Vektörel çizim programýdýr. matbaacýlar tarafýndan sýkça kullanýlmaktadýr.
+
+AdobePhotoshop: Resim iþlemek(raster iþlemler) için kullanýlan grafik paketidir.
+
+3D StudioMax: 3D modelleme ve kaplama, karakter animasyonu, animasyon ve film oluþturmanýzý saðlayan grafik paketidir.
+
+Lightwave: 3D modelleme ve kaplama, karakter Animasyonu, animasyon ve film oluþturmanýzý saðlayan grafik paketidir.
+
+SoftImage: 3D modelleme ve kaplama, karakter animasyonu, animasyon ve film oluþturmanýzý saðlayan grafik paketidir.
+
+Maya: 3D modelleme ve kaplama, karakter animasyonu, animasyon ve film oluþturmanýzý saðlayan grafik paketidir.
+
+Poser: Ýnsan ve yaratýk kütüphanesi ile hýzlý bir biçimde karakter ve karekter animasyonu gerçekleþtirmeye yarayacak grafik paketidir.
+
+Byruce3D: Doða, çevre ve gökyüzü görüntüleri oluþturmaya yarayan bir grafik paketidir.Temelde windows üzerinde oyun geliþtirmek istiyorsanýz kesinlikle win32 apisine çok iyi þekilde hakim olmanýz gerekiyor. Bunun için size önerim Programming Windows Charles Petzold’un kitabýný bulup okumanýz. Ama benim gerek tutoriallarý anlatmam, gerekse input iþlemlerini kolayca halledebilmem açýsýndan GLUT apisi’ni tercih etmem gerekiyordu. Peki Glut Api’si ne iþe yarar ve nerelerde kullanýlýr ?
+
+Adýnda belli olduðu gibi OpenGL Utulity Toolkit, OpenGL Grafik Api’sine destek olmasý için Mark J. Kilgard tarafýndan yazýlmýþtýr. OpenGL Grafik Api’si içerisinde iþletim sistemine dair hiç bir fonksiyon içermez (nedenini, iþletim sistemi baðýmsýz ve taþýnabilir olmasýnda arayabilirsiniz) buna raðmen iþletim sistemi ile iliþkide de bulunmasý gerekir. Mesela inputlarý dinlemesi, pencere için iþletim sisteminin numara almasý vb….. Biz bunlarý glut kütüphanesi olmadan win32 ile gerçekleþtirebiliriz. Aþaðýdaki linkteki kodlar Win32 Apisi ve GLUT kütüphanesi kullanýlarak yazýlmýþtýr. Ýncelemenizi tavsiye ederim !OpenGL grafik donanýmý üzerinde bulunan bu donanýma arayüz oluþturan bir yazýlýmdýr. Bu arayüz 250 farklý komut seti içermektedir. Bunlardan 200 OpenGL çekirdeði içerisinde diðer 50 tanesi ise OpenGL Utility Library içerisindedir. OpenGL grafik api’ si sayesinde 3 boyutlu interaktif uygulamalar geliþtirebilirsiniz.
+
+OpenGL platform baðýmsýz bir API’ dir. Arka arkaya çalýþtýrýlan komut akýþý gerçekleþtiren bir arayüz olarak dizayn edilmiþtir. Bu kaliteyi saðlamak içinde kendi bünyesinde windowing task’lar ve obtaning user input gibi komutlarý içermez, onun yerine kullandýðý platformun OpenGL’e saðladýðý windowing ve input servislerinden yararlanýr. Ayný þekilde yüksek seviyeli 3 boyutlu nesneler oluþturmak için de komut içirmez. Fakat saðladýðý komutlarla bir otomobil, uçak veya molekül yüzeyi oluþturabilir. OpenGL ile bu tipte istenen modelleri oluþturmak için geometrik primitif dediðimiz küçük araç kitindeki nokta, çizgi ve polygonlardan yararlanýrýz.
+
+Elbeteki daha iyi bir grafik sistemin oluþturulmasý OpenGL’ in temel yapýlarýnýn üzerine oturtularak kurulabilir. OpenGL Utility Library (GLU) birçok yüksey düzey modelleme özelliklerine, Quadratic yüzeylere, NURBS eðri ve yüzey oluþturma özelliklerine sahiptir. Daha farklý olarak yine OpenGL üzerine kurulu Scene Graph özelliðine sahip olan daha yüksek düzeyli Farrenheit Scene Graph yine OpenGL kütüphanesi üzerine kurulmuþ yüksek düzeyli bir kütüphanedir.

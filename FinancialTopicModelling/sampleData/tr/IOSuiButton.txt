@@ -1,0 +1,24 @@
+﻿IOS UIButton Image Tricks
+
+Bu yazıda IOS’ta Button’u kullanırken size yardımcı olacak bir kaç image triğinden bahsedeceğim.
+
+    Bir düğmeniz var ve arkaplan resmi çok küçük, düğmenin üzerine bastığınızda algılamıyor. Bunun için düğmenin algılama alanını nasıl arttırabiliriz ?
+
+Normal bir düğme resminin kapladığı yer
+Algılama alanı arttırılmış düğmenin kapladığı yer
+
+Bunun için düğmenin genişlik ve yüksekliğini 20 pixel artırıyoruz. 18px olan düğme genişliği 38 px oluyor.
+
+Sonrasında resim kendi boyutunda kalması için inset tanımlıyoruz. Sağ, sol, üst ve alttan 10px inset tanımlıyarak resmin eski görüntüsünde kalmasını sağlıyoruz.
+
+2. Image vs Background Image diye neden iki tane resim alanı var? Bu alanlar ne işe yarıyor.
+
+Eğer düğmenizde sadece resmi kullanmak istiyorsanız. Dinamik bir yazı içermiyor ise o zaman Image alanını kullanınız.
+Image Alanı Kullanılan
+
+Eğer düğmenizde resim üzerindeki yazıyı değiştirmek istiyorsanız. Örneğin picker tetikleyen aşağıdaki gibi bir ay seçim düğmesi tanımladınız. Arka planlarında statik resim kullanıp öndeki yazıyı güncellemeniz gerekir. Bu durumda Background Image alanını kullanınız.
+Background Image Kullanılan
+
+3. Tint Color ne işe yarıyor ?
+
+Aynı düğmeyi farklı farklı renklerde gösterme ihtiyacınız var. Tekrar tekrar farklı image oluşturup, projeye eklemektense düğmenin Tint rengini güncelleyerek farklı renklerde düğmeler elde edebilirsiniz. Button Type System olması gerekmektedir.

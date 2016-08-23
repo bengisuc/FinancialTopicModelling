@@ -1,0 +1,19 @@
+﻿Design Patterns-17 (Memento)
+
+Bu örüntüyü nesnenizin statelerini tutmak ve bu nesnenizde geriye dönmek istediğiniz zaman kullanabilirsiniz. Örneğin bir bilgisayar oyunu oynuyorsunuz ve ara ara oyununuzu kaydederek Snapshot’lar oluşturuyorsunuz. Zamanı gelince istediğiniz Snapshot dönüp oyununuzu geri alarak devam edebilirsiniz.
+
+Bunun için yazılımcı olarak oyun içi karakterlerinizin ve nesnelerin o anki parametrelerini kaydedip, yeri gelince bu parametrelere ulaşabilmemiz gerekir.
+
+Memento örüntüsünü bu tip durumlarda kullanabilirsiniz. 3 tip sınıftan oluşur.
+
+    Originator:Nesnenin nasıl kaydedilip nasıl çekileceğini bilen sınıftır.
+    Memento: Kaydedilecek nesnenin state tutar.
+    CareTaker: Memento nesnesinin versiyonlarını tutan yapıdır.
+
+Memento Sınıfı
+
+Originator Sınıfı
+
+CareTaker Sınıfı
+
+Main Sınıfı

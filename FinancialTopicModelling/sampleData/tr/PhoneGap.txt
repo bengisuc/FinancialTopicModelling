@@ -1,0 +1,72 @@
+﻿PhoneGap vs Native
+
+Bu dejavu olayını tekrar tekrar yaşıyorum. PhoneGap vs Native.
+
+2012 yılında Telekom Online Hizmet Merkezi için mobile proje geliştirmeye başladığımızda öncelikle Sencha, JQuery Mobile ve WNG gibi HTML çözümler kullanarak Mobil-Web kısımlarını geliştirmiştik.
+
+2011–2013 yılları arasında herkes mobil HTML5'e yüklenmiş. Facebook ve LinkedIn Mobil uygulamalarını HTML5 teknolojiler ile yapmaya çalışıyordu. PhoneGap o dönemde parıldamış hatta Adobe tarafından satın alınmıştı.
+
+Sonrasında Mark Zuckerberg Mobile HTML5 ile ilgili aşağıdaki olumsuz konuşması
+http://techcrunch.com/2012/09/11/mark-zuckerberg-our-biggest-mistake-with-mobile-was-betting-too-much-on-html5/
+
+Ardındandan LinkedIn Senior Director Kiran Prasad yapılan aşağıdaki olumsuz konuşma
+http://venturebeat.com/2013/04/17/linkedin-mobile-web-breakup/
+
+HTML5 Mobile olan güvenin giderek sarsılmasına sebep oldu. Temelde HTML5 write once, run every phone mantığının olmadığını. Bunun yerine native yazılan mobil uygulamaların çok daha performanslı ve kullanıcıyı memnun eden, tatmin eden uygulamalar olduğu farkedildi. Nitekim bir ara Steve Jobs AppStore 3rd Party kütüphaneler ile geliştirilen uygulamaları AppStore koydurtmadı.
+
+Nitekim Telekom’da mobil için yazılan uygulamalarının sadece mobil web’den girilebilen değilde Store’da olmasını istediği zaman bu uygulamaların müşteri memnuniyeti için iPhone ve Android native olarak yazılmasına karar verilmişti ve Native yazılmıştı.
+
+O tarihte sadece Zepto.js, JQTouch, JQuery Mobile, Sencha Touch Mobil HTML kütüphaneleri mevcuttu. Diyebilirsiniz ki PhoneGap bu konu ile ne alakası var ?
+
+PhoneGap sanki Native dil bilmeye gerek yok. İşimi sadece JS, HTML5 ile hallederim gibi bir his oluşturduğu için yukarıdaki teknolojileri anlatıyorum. Tek bir tasarımla hem IOS, hem Android hemde Windows Phone çözerim gibisinden bir yaklaşım ile yola çıkmak ne kadar doğru. Problem işte buradan kaynaklanıyor.
+
+2014 Şirket değişikliği yapıp Cybersoft geçtiğime karşıma yine PhoneGap ile yazılmış bir uygulama çıktı. Android kısmı olmuş ama ekran görüntülerinde problem vardı. iPhone ve WindowsPhone kısmı hiç çalışmıyordu. iPhone’da dosya sistemine erişim kodlarında problem olduğu için uygulama ana işlevini gerçekleştiremiyordu. PhoneGap ile devam etmemiz gerektiğini bu tip projeleri Native olarak gerçekleştirmemiz gerektiğini belirttim. Projeleri Native olarak baştan yazdık. Bunun sonucunda mobil uygulamalarımızı üçünüde Store koyabildik. https://www.efinans.com.tr/tr/urun-ve-hizmetler/eFinans-Mobil-Uygulama
+
+Uzun zamandan sonra yine PhoneGap karşıma çıktı. Bir kurum kendisi için bir mobil uygulama geliştirtmiş.Uygulama PhoneGap ile geliştirilmiş ama kurum arayüz tasarımlarından , kullanıcı etkileşiminden memnun değil bu şekilde piyasaya çıkmak istemiyor. Problem yine tasarımın hiç önemsenmeden Android ve IOS farkı gözetmeden, performans hiç düşünülmeden gerçekleştirilmesinden kaynaklanmış. Bundan dolayı benim kişisel tercihim Native uygulamalar geliştirmekten yana.
+
+Teknik Olarak PhoneGap Kütüphanesi
+
+Arayüz:
+PhoneGap arayüz olarak NativeUI bileşenlerini kullanmaz bunun yerine HTML5, CSS ve JS ile hazırladığınız sayfaları WebView bileşeni içerisinde render ederek çalıştırır. Render ve etkileşim hızı Safari veya Chrome web sayfası hızı ile aynıdır. Özetle yapabileceğiniz animasyon ve tasarımlar HTML5 ile sınırlıdır.
+
+Sunucu İle İletişim:
+Bu kısımda PhoneGap birşey yapmasına gerek yok zaten altyapısında JS kullandığı için cihaz-sunucu iletişimi XHTTPRequest yani Ajax çağrıları ile gerçekleştirilir.
+
+Api:
+PhoneGap asıl olayı Native API’leri Javascript üzerinden kullanabilmesidir. Bu api sayesinde Cihaz bilgilerine, bateri durumuna, ivme ölçere, pusulaya, kontakt listesine, dosya sistemine, kameraya, alarm yönetecisine ve medya yöneticisine erişim sağlayabilirsiniz. Bundan daha fazlası için plugin yazıp bu pluginleri kendi sisteminizde kullanabilirsiniz.
+
+Peki bu işlemi nasıl gerçekleştiriyor Nasıl Javascript’ten Native kod çağrılabiliyor. Aşağıdaki linkte bu konunun detayı anlatılıyor. Temelde IOS SDK’sı içinde böyle bir yetenek yok. Web sayfasında DOM değişikliğini dinlemek için UIWebViewDelegate shouldStartLoadWithRequest register oluyor. Her bir js fonksiyon çağrımında iFrame içerisine eklenen cmd ve JSON params parse edip Native taraftaki Plugin kodlarının çağrılmasını sağlıyor. Bu işlemi NativeBridge.js sağlıyor.
+
+http://blog.techno-barje.fr//post/2010/10/06/UIWebView-secrets-part3-How-to-properly-call-ObjectiveC-from-Javascript/
+
+Paketleme ve Dağıtım
+https://build.phonegap.com/ adresinden
+
+Bu HTML,CSS,JS dosyalarını alıp çalıştırdığınızda iOS için IPA, Android için APK, Windows Phone için XAP dosyası oluşturabiliyorsunuz.
+
+Nasıl Çalışır
+
+window.location: http://aabbcccxx??.com/mobile verirseniz uygulama gider HTML,CSS, JS dosyalarını ilgili adresten cep telefonuna yükleyerek çalıştırır. Bu HTML,CSS,JS dosyalarını cep telefonunun localinde tutarakta uygulama geliştirebilirsiniz, uygulama hızlı olur ama PhoneGap asıl + olan özelliğini yani sunucudan update özelliğini yitirmiş olursunuz.
+
+Avantajları
+
+Sunucuda yaptığınız her değişikliği mobil uygulamada görebilirsiniz bu da size store atma sürecini atlayarak mobil uygulamanıza eklemeler çıkarmalar yapmanıza imkanı sağlar.
+
+Kurulumu çok basit. Node.js npm’yi kullanarak phonegap basit bir şekilde kuruluyor.
+
+Proje oluşturup istediğiniz pluginleri eklemek çok kolay. Aşağıdaki işlemler commandline’dan basit bir şekilde yapılabiliyor.
+
+    Create Project
+    Add/Remove platform
+    Add/Remove plugin
+    Compile/Build project
+
+Dezavantajları
+
+Native kısmı oldukça basit tutulmuş. Mobil cihazın asıl yeteneklerini kullanan bir uygulama yapmak oldukça zor.
+
+Native kısma erişim hack pluginler ile yapılmış durumda. Hangi cihazlarda bu native plugin özelliklerin çalışabileceği test cihazları ile test edilmesi gerekir.
+
+Her platformun arayüz tasarım rehberi ve kullandığı servisler farklı (iCloud, Push Notification, Map) Tek bir platformda bunları birleştirmek mümkün değil.
+
+Uygulamaları derleme ve Store atma süreçleri farklı. Bunları tek bir yerde ele alıp işlemekte oldukça zor. Bunun için bu kısmı bulutta SAAS hizmeti olarak veriyorlar.

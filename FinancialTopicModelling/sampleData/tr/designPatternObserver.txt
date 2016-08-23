@@ -1,0 +1,5 @@
+﻿Design Patterns-18 (Observer)
+
+Observer örüntüsü tüm UI bileşenlerinin haberleşme ve iletişim temelini oluşturur. Bileşenlerin üzerinedeki Mouse, Keyboard, Gesture eventlerini dinleyip nesnede oluşan değişikliklerini kendilerini dinleyen Observer sınıflarına iletirler. Dinleyici sınıfların yapması gereken tek şey o bileşenin Listener interface implement etmek ve kendisini bu bileşene register/attach etmek.
+
+Sonrasında Subject olan nesnede örneğin bir Button olsun bu Subject. Mouse ile bu düğmeye bastığımızda buna attach olmuş tüm MouseListener’lara notification gönderilir.

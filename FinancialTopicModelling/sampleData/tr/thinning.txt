@@ -1,0 +1,15 @@
+﻿App Thinning (iOS and watchOS)
+
+AppStore ve kullandığınız cihazın işletim sistemi, cihaza indireceğiniz iOS ve watchOS uygulamasının daha optimize bir şekilde cihaza yüklenmesini sağlama işlemine App Thinning denir. Bu optimizasyonu yapılmış indirilecek cihaz özelliklerine göre optimize edilerek disk’te kaplayacağı alanlar azaltılır. Bu sayede uygulamayı daha hızlı indirilebilir ve daha çok uygulama indirebilirsiniz.
+
+Slicing (IOS)
+
+iOS 9'dan sonra gelen bir özellik. AppStore farklı cihazlar için uygulamanın farklı variant’larını oluşturarak daha optimize installation package oluşturur. Resim kaynakları bulunduğu cihaz’ın çözünürlüğüne göre bölünür. GPU kaynakları cihaz özelliklerine göre bölünür.
+
+Bitcode (iOS, watchOS)
+
+Bitcode compile edilmiş bir programın ara gösterimidir. Java’daki Bytecode benzer olduğunu düşünüyorum. Bu bitcode sayesinde Apple uygulama üzerinde re-optimization yaparak uygulamanın daha az kaynaklar tüketecek şekilde oluşturulmasını sağlayabiliyor.
+
+On-Demand Resources (iOS)
+
+Uygulamaya ait Img, Veri gibi kaynakların ilk seferde cihazına indirmeden uygulamanızı ufak olarak indirip, bu verilerin bir kısmının AppStore tutulmasını sağlatıp, yeri geldiği zaman ilgili keyword ve tag ile store’dan download edilebilmesini sağlayabilirsiniz.

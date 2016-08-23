@@ -1,0 +1,20 @@
+﻿iOS App Transport Security
+
+iOS9 ile birlikte gelen App Transport Security nedir ? Aslında sadece iOS ile ilgili değil OS X El Captain ve watchOS 2 gibi Apple’ın tüm işletim sistemlerindeki uygulamaların güvenlik seviyesini daha yukarıya çekecek bir özelliği eklemeye, bu özelliği uygulama geliştiricilerin uymasını bekliyor.
+
+Genel’de uygulamalar req/resp HTTP üzerinden gerçekleştirir. Arada giden/gelen mesajların açık olması olması , kullanıcıların bu verilerinin dışardan kolay bir şekilde olmasını engellemek için Uygulamaların dışarı ağlar ile erişiminde default olarak TSL 1.2 ve üzerini destekleyecek SSL(HTTPS) şekilde gerçekleştirmelerini istemektedirler.
+
+Peki mevcut uygulamanız CDN veya Apple bahsettiği güvenlik chiper’larını desteklemiyor. Bu durumda ne yapmamız gerekiyor. Apple bu durum için bir arka kapı açmış info.plist içerisinde Exception yazarak kendi durumunuza uygun protokolü yazabilirsiniz.
+
+
+api.myapp.com
+
+Güvenliksiz HTTP Load işlemini engelliyor. Tüm iletişimin HTTPS üzerinden gerçekleştirmeyi zorluyor.
+
+cdn.myapp.com
+
+Güvenlik seviyesini biraz düşürerek TSL 1.1 seviyesindeki iletişimi desteklemeyi sağlıyor.
+
+myapp.com
+
+ForwardSecrecy yeteneği olmadan bu endpoint’e erişime izin vermeyi sağlıyor.

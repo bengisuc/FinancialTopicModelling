@@ -1,0 +1,23 @@
+﻿IOS Swipe Kabiliyeti
+
+IOS tablolarında swipe kabiliyetini oluşturmak için Ali Karagöz’ün aşağıdaki linkteki https://github.com/alikaragoz/MCSwipeTableViewCell kütüphanesini kullanabilirsiniz.
+
+3 tane Swipe Modu mevcut:
+
+    None (MCSwipeTableViewCellModeNone) : Swipe modu kapalıdır.
+    Exit Mode (MCSwipeTableViewCellModeExit): Bu mod seçildiğinde swipe işlemine başladığınızda ve parmağınızı telefondan çektiğinizde alttan gelen ekran tüm ekranı kaplayacak şekilde hareketine devam eder.
+    Switch Mode (MCSwipeTableViewCellModeSwitch): Bu mod seçildiğinde swipe işlemine başladığınızda ve parmağınızı telefondan çektiğinizde alttan gelen ekran tam tersi hareket yaparak eski moduna döner.
+
+5 tane Swipe State mevcut:
+
+    MCSwipeTableViewCellStateNone : Swipe işlemine başlanmadığı durum.
+    MCSwipeTableViewCellState1 : Soldan → Sağa %25 kısmı geçtikten sonra bu durum tetiklenir.
+    MCSwipeTableViewCellState2 : Soldan → Sağa %75 kısmı geçtikten sonra bu durum tetiklenir.
+    MCSwipeTableViewCellState3 : Sağdan → Sola %25 kısmı geçtikten sonra bu durum tetiklenir.
+    MCSwipeTableViewCellState4 : Sağdan → Sola %75 kısmı geçtikten sonra bu durum tetiklenir.
+
+@interface MCSwipeTableViewCell : UITableViewCell’den türemektedir. Yapmamız gereken tablonun hücrelerini SwipeTableViewCell dönüştürerek bunlara uygulamamızın mantığına göre kodlamamız gerekiyor.
+
+cell setSwipeGestureWithView fonksiyonunu çağırarak hangi swipe yeteneğini bu cell veririz. Hangi modda, hangi state arkaplan resmi ve renginin ne olacağına bu fonksiyon ile karar verilir. State değişikliklerinde callback fonksiyonları eklenerek, tetikleme sırasında hangi işlem yapılacak ise o işlem kodlanır.
+
+Yapılan işlemden sonra ExitMode yapılan swipe işleminin geri alınabilmesi için swiped edilen cell değişkende tutulması ve bu cell swipeToOriginWithCompletion fonksiyonun çağrılması gerekmektedir.

@@ -1,0 +1,19 @@
+﻿Apple Adaptör Dünyası
+
+Apple Dünyası diye bir şey var çünkü diğer dünya ile iletişime girebilmek için yanımda deli gibi dönüştürücü taşıyorum. Diğer dünya ile iletişim kurmak için ekstra işlemler yapmak zorunda kalıyorum. Apple ürünlerini bu kadar sevmesem aşağıdaki bu problemlerle uğraşmak akıl işi değil.
+
+Fotoğraf Basımı
+iPhone4'ün ve iPhone5 veri aktarım kabloları birbirinden farklı. Eşimdeki ve Kendi telefonumdan fotoğrafları ayrı veri kabloları ile aktararak gerçekleştiriyorum. Bu fotoğrafları USB attığınızda eğer USB Fat dosya yapısına göre formatlamadıysanız. Fotoğrafçı USB taktığında USB tanımayacaktır.
+
+Eğitim CD
+Okuldan verilen ingilizce eğitim CD’sini açıyoruz. Ve hop içerisinden EXE çıkıyor . Mac’de çalışabilen versiyonunu geliştirmemiş arkadaşlar. Çünkü herkeste Windows var diye düşünüyorlar.
+
+Sunum
+Sunum yapmaya gidiyoruz. HDMI girişi olmayan bir projeksiyon cihazına Mac’ın olmayan piyasa bir USB-> RGB dönüştürücüsü takıyorum. Mac restart ediyor. Sony ve HP laptoplarda sorun olmadan çalışıyor. İlla Mac’in kendi orjinal dönüştürücüsünü satın almam gerekiyor.
+
+Sarj Problemi
+Hastane’de şarjım bitti. Doktor ve hemşirelerden IOS şarj aleti olan var mı diye soruyorum. Nerdeyse herkes de Android kullanıyor, kimsede iPhone sarj aleti bulamadım. iPhone Türkiye’de Android’e göre oldukça az kullanıldığını düşünmeye başladım.
+
+Ethernet Problemi
+
+Şirkette veya bulunduğunuz ofiste Wireless bağlantı yasağınız var ise ve USB Ethernet dönüştürücüye ihtiyacınız olacak. Bunun içinde SLink U603 driver ihtiyacınız var ise http://bit.ly/1h5L5zD adresinden indirebilirsiniz.

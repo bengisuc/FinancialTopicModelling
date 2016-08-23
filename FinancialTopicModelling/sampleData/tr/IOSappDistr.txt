@@ -1,0 +1,88 @@
+﻿IOS App Distribution (Uygulama Dağıtımı)
+
+iPhone uygulama geliştirebilmek ve bunu AppStore atabilmeniz için öncelikle Apple Developer Program katılmanız gerekiyor. https://developer.apple.com/programs/ kayıt yaptırmanız geriyor.
+
+Apple Developer Programı 2 çeşit katılım mümkün Kişisel ve Organizasyon(Şirket/Devlet Kurumu) kaydı.
+
+Öncelikle AppID alarak Member Center kişisel üyelik gerçekleştirdikten sonra https://developer.apple.com/programs/enroll/ adresinden paranızı ödeyerek üyeliğinizi gerçekleştirebilirsiniz.
+
+Üyeliğiniz başladıktan sonra IOS, Mac, Safari uygulamalarınızı geliştirmeye başlayabilirsiniz.
+
+Süreç
+
+Yukarıdaki resim uygulamanın başından dağıtımına kadar olan süreci açıklıyor aslında.
+
+Enroll — Member Center (Turuncu): iPhone uygulaması geliştirmeden önce, geliştirme ve yayınlama ile ilgili tanımlaları Member Center renkli bölgede yapmanız gerekiyor. Bu tanımlamaları yaptıktan sonra geliştirmeleri yapabilmek için bu tanımlamaları local makinelerinize indirmeniz gerekmektedir.
+
+Develop — XCode (Mavi):
+Uygulama geliştirdiğimiz. Bu uygulamayı paketleyip, dağıtım için iTunes Connect upload ettiğimiz kısım.
+
+Distribute — iTunesConnect (Yeşil):
+Uygulama iTunes Connect yüklendikten sonra Dağıtım için bir takım bilgilendirmeler eklenip, Beta Testine buradan da onay sürecine, buradan da AppStore atılıyor.
+
+Başlangıç
+
+Xcode geliştirdiğiniz uygulamayı bir cihaz takıp, cihaz üzerinde görmek istediğinizde size hemen buna yetkiniz olmadığını söyler. Bu sırada uygulamayı çalıştırmak istediğinizde size Code Signing Error veya Provisioning Profile olmadığı için hata verir.
+
+Sertifika Oluşturma
+
+Peki bunun için ne yapmalısınız. Xcode/Preferences altında Account altından AppID girerek hesabınızı tanıtmanız gerekiyor. Bu hesabınızın Member Center’daki Developer lisansına göre None, Member, Admin gibi bilgiler gözükür.
+
+Admin yetkisindeki kullanıcı ekip içerisinde IOS geliştirme yapacak kişilere AppID(mail) adresi üzerinden davetiye gönderir. Ekibe dahil olacak kişi bu davetiyeyi kabul ederek Apple Developer Program’daki ekibe dahil olur.
+
+Geliştirme ekibine dahil olmuş kişi Member Center altından Certificates/Development altından Developer Sertifikası oluşturup bunu local’ine yüklemesi gerekir.
+
+Bunun için local’de KeyChain aracı kullanılarak CSR üretilir. CSR üretilirken kullanıcının AppID ve ismi kullanılır ve bu bilgilerden kullanıcının local’inde private ve public key üretilir. Bu key bilgilerini KeyChain/Keys altından görebilirsiniz. Bu işlem sonucunda local’inize kaydettiğiniz csr dosyasını MemberCenter altına gidip bu csr ile benim için bir sertifika oluştur dediğinizde sizin local’inize indirebileceğiniz bir .cer dosyası oluşturur. Bu dosyaya 2 defa tıkladığınızda KeyChain/Certificate altında IOS Development sertifikasını ve bunun altında private key ekler.
+
+AppID Oluşturma
+
+İkincil olarak bir AppID üretelim ve bu App kullanacağı servisleri tanımlayalım. Member Center Identifiers/AppID altından AppID üretip bu app kullanacağı servisleri tanımlamız gerekiyor.
+
+App Name ve App Explicit name girerek AppID oluşturabilirsiniz.
+
+Provisioning Profile Oluşturma
+
+Member Center’da Provisioning Profil altında Development ve Distribution için Provisioning Profiller tanımlanır. Bu profil hangi uygulamanın, kimler tarafından geliştirilebileceği ve hangi cihazları test cihazları olarak kullanılabileceğinin bilgisini tutar.
+
+Xcode için bu provisoning profile dosyasını Local’inize indirip çift tıkladığınızda XCode account/view details altında sisteme eklediğiniz provisioning profile görebilirsiniz. Aynı yerden Refresh düğmesine bastığımızda Member Center sizin ile ilgili provisioning profile belgerini otomatik olarak ta indirir.
+
+Uygulama Ayarları
+
+Projenin Generals/Identity Team kısmında dahil olduğunuz hesabı seçin. Build settings altından CodeSigning Identitiy olarak kendinize ait Developer Sertifikasını seçin, Provisioning Profile olarak ta Automatic olarak bırakabilirsiniz.
+
+Code Signing(Kodu imzalamak) Ne İşe Yarıyor
+
+Kodun sizin sertifikanız ve provisioning profile ile imzalanması yani koda hashing uygulanarak bununda pakete eklenmesi anlamına gelir.
+
+    Kodu kimin imzaladığını ve bu kodun imzalandığından itibaren değiştirilmediğini kanıtlar.
+    Kodun güvenilir bir takım üyesi tarafından, sadece belirtilen servisleri kullandığı ve sadece belirtilen kayıtlı telefonlar üzerinde çalışacağını garantiler
+
+Uygulama Geliştirme
+
+Bu aşamadan sonra uygulamanızı geliştirip, uygulamalarınızı belirlediğiniz cihazlar üzerinden testlerinizi gerçekleştirebilirsiniz.
+
+Uygulamayı iTunes Connect Atma
+
+Bunun için bir Distribution Sertifikası oluşturmanız gerekiyor. Bu Sertifikayı ve AppID yı kullanarak bir tanede distribution provisioning profile oluşturmanız gerekiyor.
+
+Daha sonra iTunesConnect atmak için bir archive dosyası oluşturmanız gerekiyor. Archive oluşturmadan önce Build Settings/ CodeSigning Provisioning Profile olarak bu Distribution Profile seçmelisiniz.
+
+Eğer ekipte başka bir kişi daha Distribution yapmak istiyorsa kendisininde bu Distribution sertifikasına ihtiyacı olur. Bunun için bu sertifikayı üreten kişi Local’inden KeyChain bu sertifika dosyasını export ederek p12 dosyası oluşturur. Karşıdaki kullanıcı bu dosyayı çift tıkladığında artık o kullanıcıda bu sertifikaya sahip olmuş olur.
+
+Sonrasında kayıtlı test telefonlarınızdan birisini Xcode bağlarayak. Xcode/Product/Archive altından Archie oluşturulur. Validate Et dediğinizde. Bu .ipa paketin doğrulama işlemini gerçekleştirir.
+
+Submit To AppStore düğmesine basıldıktan sonra proje iTunes Connect sistemine atılmaktadır.
+
+Beta Test
+
+Uygulama AppStore atılmadan önce müşterileriniz veya test ekibinin görmesi için geliştirilmiş bir aşamadır. 1000 kişiye yakın kullanıcı ePosta aracılığı TestFlight üzerinden uygulamanızı deneyebilir, test edebilirsiniz.
+
+Bunun haricinde Ad-Hoc sertifikası ile 100 kayıtlı telefon üzerinde beta testi yapabilirsiniz.
+
+App Store
+
+Gerekli bilgiler ve resimleri doldurduktan sonra uygulama App Store submit edilmek için gönderilir. Eğer uygulamanız Login ile giriş yapılıryor ise bir tane Test kullanıcısı bilgileri verilerek uygulama submit edilir. Uygulama Apple tarafından incelendikten sonra bir problem çıkmaz ise 1,2 hafta sonra Store’da yerini alır.
+
+Push Notification, Apple Pay, PassType, WatchKit Sertifikasyonları
+
+Örneğin uygulamalarınıza Push Notification yeteneği eklemek istiyorsunuz. İlk başta AppID tanımlarken , kullanılacak servisler içerisinden PushNotification servisinide aktif hale getirmeniz gerekiyor. Sonrasında aşağıdaki resimdeki Development ve Production ortamları için sertifikaları oluşturmamız gerekiyor. Bu sertifikalardan oluşturduğumuz p12 dosyalarını sunucu tarafında kullanarak uygulamamızın APN ile haberleşmesini gerçekleştirebiliriz. Sunucu-APN iletişimini sağlamış olursunuz.

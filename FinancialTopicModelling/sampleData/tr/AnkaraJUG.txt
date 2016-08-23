@@ -1,0 +1,67 @@
+﻿Ankara JUG (Hazelcast Sunumu)
+
+Bu hafta Ankara JUG’da Hazelcast’ın kurucusu Talip Öztürk’ün sunumu vardı. Oldukça güzel geçen sunumu aklımda kalanlar ile özetlemeye çalışacağım.
+
+Sunum 2 kısımdan oluşuyordu.
+
+    1nci kısım Teknik yani Hazelcast’ın ne olduğu, nasıl çalıştığının anlatıldığı kısım.
+    2nci kısım Hazelcast’ın hikayesinin nasıl başladığı, nasıl şirkete dönüştüğü, yatırımcılardan nasıl destek aldığı ve şirketin Amerika’ya nasıl taşındığının anlatıldığı bölüm.
+
+Teknik Kısım
+
+Hazelcast Java veri yapılarının dağıtık olarak farklı JVM’ler üzerinde çalışabilmesini sağlayan bir ürün.
+
+Örneğin:
+
+HashMap veri yapısında (key, value) nesnelerimizi saklarız. Peki bu Map’e multi thread erişmek istediğimizde, çakışmalar olmaması için ne yapmamız gerekir. Cevap yine Java’nın içerisinde mevcut ConcurrentHashMap. Buraya kadar herşey güzel. Peki biz aynı makinede veya networklerdeki farklı makinelerde birden fazla JVM üzerinde HashMap yapısını nasıl çalıştırabiliriz. Bu HashMapleri nasın senkronize edebiliriz. Bunun cevabı HazelcastHashMap.
+
+Demo sırasında aynı makineden (1, Ankara) nesnesini HazelcastHashMap attık. Sonrasında 2nci bir JVM oluşturup ordan bu nesneyi get ettiğimizde direk nesnenin geldiğini gördük.
+
+HashMap listener ekleyerek HashMap üzerindeki değişiklikleri direk olarak dinleyebildik. Yada bir JVM üzerinden key,value lock’ ettiğimizde diğer JVM’in bu bilgiyi değiştiremediğini gördük.
+
+Sonrasında bir uygulamadan HashMap 600 tane nesne attığımızda Dashboard üzerinden bu yükün 2 Node arasında nasıl dağıldığını ve nasıl yedeklerinin alındığını gördük. JVM sayısı 3 çıkardığımız zaman verinin dağılımı yine değişerek JVM başına dengeli veri dağıtımının gerçekleştirdiğini gördük.
+
+Özetle Hazelcast, uygulamanın çalıştığı JVM’leri otomatik olarak bulup bunlar arasında veri dengelemesi yapabilmek için verilerin paylaşımını ve birbiri arasında aktarımını gerçekleştiren bir ürün.
+
+JVM’lerdeki Hazelcast’in birbirini bulması sırasında Multicasting, IP araması vb.. yöntemler kullanırken bu işlemler gerçekleştikten sonra tüm iletişimi TCP/IP seviyesinde gerçekleştiriyorlar.
+
+Hazelcast’in bir avantajıda dışarıdan başka bir kütüphaneye bağımlı olmaması, Serialization, Memory Allocation vb tüm mantıklarda gerekli gördükleri yerlerde java kütüphanelerinin dışına çıkarak kendilerinin implement etmiş olmaları.
+Teknik Kısım’daki Sorular
+
+Soru1: Hazelcast’in REDIS veya Cassandra’dan ne farkı olduğuydu;
+
+Cassandra ile Farkları
+
+    Cassandra Veritabanı, Hazelcast In Memory Cache
+    Dağıtık çalışırken Cassandra Tablo Column larını kullanırken, Hazelcast Key-Value üzerinden dağıtık çalışmayı sağlıyor.
+    Cassandra veriyi dağıtımını Ring benzeri bir yöntem kullanırken, Hazelcast bunu daha spesifik ve elle dağıtır gibi dağıttığını belirtti.
+
+Redis ile Farkları
+
+    Single Redis ile mantık olarak tamamen farklı çalıştıklarını, REDIS’in bir istemci-sunucu mantığı ile verileri cache’lemek için istemci’den binary hale dönüştürülen verilerin saklandığı ve tekrar geri istendiğini ama Replication mekanizmasının kolay olmadığını. Single instance çalışacaksanız. Client-Server mekanızması ile çalışacaksanız Redis’in çok iyi bir çözüm olduğunu belirtti.
+    Clustered Redis ise Hazelcast’in benzer bir amaç güttüğünü ama Clustered Redis’in yeni başlayan bir proje olduğu için önlerinde katetmeleri gereken uzun bir yol olduğunu belirtti.
+
+Soru2: Teknik Olarak Hazelcast zorlayan konuların ne olduğu idi ?
+
+Networking konularında Node’ların Zombie olarak kalması, Node’ların yaşayıp yaşamadığının bilinmemesi, Network ile ilgili problemler vb.. sıradışı konuların kendilerinin %80 zamanını aldığını %20 zamanlarını ise yeteneklerin geliştirmesi ile uğraştıklarını belirttiler.
+
+Soru3: Dağıtık 3 makinede 3 JVM olursa, aynı verilerin yedekleri farklı JVM’de fakat aynı makinede toplanırsa ve bu makine çökerse verileri nasıl kurtarabiliyorsunuz ?
+
+Bu verilerin kurtulamayacağı, Baştan konfigurasyonun bu durumu oluşturmayacak şekide verilmesi yani ana veri ile yedeğinin aynı makinede tutulmaması için IP bazlı bu konfigurasyonun verilmesi gerektiğini söyledi.
+
+Sorunun devamında Cloud veya Virtual Machine sanallaştırarak oluşturalan makinelerdeki JVM’lerde bu tip durumların nasıl engelleneceği konusuydu. Bu durumun sorumluluğunun sistem yöneticisinde olduğunu AWS gibi sistemlerde Availability Zone’lar ile benzer durumların Cloud yapıldığından bahsetti.
+
+Soru3: Hearthbeat benzeri bir yapının Hazelcast yer alıp almadığı soruldu.
+
+Hearthbeat yapısının Hazelcast yer aldığını özellikle Node’ların hayatta olup olmadığını anlamak için bu hearthbeat kullandıklarını ve bu Hearthbeat’lerin gelmemesi durumunda belli bir süre sonra Node öldü varsayıp çalışmalarını bu şekilde devam ettiklerini belirtti.
+Hikaye ve Business Kısmı
+
+Hikaye ve Business kısmından anladığım;
+
+    Talip, Hazelcast öncesinde de benzer işlerde çalışmış. Bu tip ürünleri Amerika’da çalışırken pazarlamaya çalışmış, oradayken bu konu ile ilgili java spec implement etmiş yani bu işe başlamadan önce bu iş konusunda baya deneyim kazanmış ve pazarın neye ihtiyacı olduğunun farkında.
+    Türkiye’ye geri döndüğünde Hazelcast kodlarken ne yapacağını çok net biliyormuş. Ve distribution olayı bu kadar popüler olmadığı için AWS, Azure, ActiveMQ, SMQ, vb konular bu kadar popüler olmadığı için sunumlarında kendini dinleyenleri hayret ettirmeyi başarmış.
+    Sürekli Avrupa ve Amarika’daki Java User Group katılıp ürününü anlatmış ve sürekli ürününü daha iyi hale getirmek için uğraşmış.
+    Zamanında ekibe teknik gücü yüksek kişilerin katılmasını sağlayarak Mehmet, Enes gibi Hazelcast baştan daha düzgün bir mimaride yazılmasını sağlamış.
+    Zamanında bir yatırımcı bularak şirketin Silikon Vadisinde açılmasını sağlayarak büyümesini sağlamış.
+    Doğru zamanda, doğru kararlar alarak, müşterinin isteği değil doğru yeteneğin geliştirmesini yaptıkları için yatırımcı peşinde koşmak yerine ürünlerini geliştirmek üzerine odaklandıkları için başarılı olduklarını söyledi.
+    Business yöntemlerinin OpenSource olan yani bedava olan ürünlerini çok fazla kurumun veya firmanın kullanmasını sağlamak ve sonra kendilerinden Danışmanlık veya Enterprise hizmeti satın almalarını sağlamak.

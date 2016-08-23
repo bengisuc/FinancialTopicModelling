@@ -1,0 +1,9 @@
+﻿Cep Telefonundaki Wireless İletişim Yöntemleri (Cellular Data, Wifi, Bluetooth, NFC)
+
+Cellular Data: Cep telefonu operatörünün(Turkcell, Avea, Vodafone) size vermiş olduğu internet hizmetidir. 4.5G için yapılan çalışmaları herkes duymuştur sanırım.
+
+Wifi: Lokal Alanlardaki Kablosuz Internet standardıdır. Evinizde, ofisinizde, alışveriş merkezinde internete bağlanmanızı sağlar.
+
+Bluetooth: 20–30 metreden cihazların birbirleri ile iletişim kurmasına, birbirlerine veri aktarmayı sağlar. Bluetooth kulaklıklar, Bluetooth ile Cep telefonun arabaya bağlanması vb..
+
+NFC : 10–20 cm arasında cihazların birbirleri ile iletişim kurmasını sağlar. Ödeme yöntemlerinde sıklıkla kullanılır. Apple Pay, Google Pay veya Master/Visa NFC ödeme sistemlerini bir çok yerde görebilirsiniz. NFC’nin güzel yanı Passif olan NFC’nin pil vb enerji kaynağına ihtiyaç duymamasıdır. Özetle kredi kartlarında da rahatlıkla kullanılabilir.

@@ -1,0 +1,7 @@
+﻿iOS ve Android Geri Düğmesi
+
+Mobil uygulamarda geri düğmesi büyük önem arzeder. Ve bu işlem Native ile WebView’in iç içe olduğu Hibrit uygulamalarda biraz daha karmaşık hale gelir. Nedeni de native uygulama ekranlarında stack’te tutulan native ekranlar pop edilerken bu işin içine birde WebView varsa, WebView içerisindeki html sayfa gezintilerimizide geri alabiliyor olmamız gerekir.
+
+iOS Geri düğmesini aşağıdaki gibi bağlarsak ilk önce WebView geri gidebildiği kadar gidecek daha sonra native UI ekranlarında geri doğru gidecektir.
+
+Android bu işlemi aslında otomatik olarak bir önceki Activity dönmektedir. Eğer bu işlemi değiştirmek istiyorsak onBackPressed() metodu ovverride edilerek istenilen şey yazılabilir ama Android WebView olan kısımlarda aşağıki şekilde bir kod yazmamız gerekir.

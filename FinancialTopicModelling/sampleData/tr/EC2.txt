@@ -1,0 +1,37 @@
+﻿EC2 Instance’sınıza Yeni Elastic Block Storage Ekleme ve Yedekleme
+
+EC2 kullandığınız ESB storage alanı size yetmiyor ise ekstra disk alıp bunu RunTime’da EC2 sunucunuza ekleyebilirsiniz.
+
+Burda öncelikli olarak EC2 sunucunuzun hangi Region ve Availability Zone’da olduğunuzu belirlemeniz gerekiyor.
+
+LabEC2 instance eu-west-1c AZ’sinde bulunuyor. Oluşturduğumuz volume’da bu Data Center’da olmak zorunda.
+
+Storage Arttırma
+
+    Adım : EC2 sunucusuna bağlan sudo su komutu ile root moduna geçin.
+    Adım: EC2 sunucusuna bağlı blokları listeletin lsblk
+
+t2.micro instance
+
+Bu metod ile sisteminize bağlı tek bir blok olduğunu bununda / noktasından mount edildiğini görürsünüz.
+
+3. Adım :EC2 sol menusunden Volumes seçilerek eu-west-1c AZ alanında 10 GBlık bir yeni block oluşturuyoruz. Burada Snapshot ID kısmında önceden yedeğini aldığımız bir ESB Snapshot verirsek bu Snapshot yüklü blok ayağa kalkacaktır.
+
+Bizim burada amacımız direk boş disk eklemek olduğu için Snapshot ID kısmına bir değer girmiyoruz.
+
+Aşağıda 10GB Volume hazır durumda. Available ama herhangi bir EC2 makinesine eklenmemiş durumda.
+
+4. Adım : İlgili Volume Seçip Sağ Tıklayıp Attach Volume düğmesine basıyoruz. Karşımıza gelen ekrandan diskini arttırmak istediğimiz EC instance seçip Attach düğmesine basıyoruz
+
+5. Adım : Attach ettiğimiz bu blok storage disk formatına bir bakalım. Formatlı olmadığı için ext4 formatında diski formatlıyoruz.
+
+6. Adım : Formatladığımız storage için bir directory oluşturup buraya mount ediyoruz.
+
+7. Adım: Artık diskiniz kullanılmaya hazır.
+YEDEKLEME
+
+Bu volume’ların yedeklerini almakta oldukça basit.
+
+1nci Yöntem : İlgili Volume sağ tıklayın çıkan menu’den Create Snapshot diyerek ilgili Block yedeğini alabilirsiniz.
+
+2nci Yöntem: EC2 sekmesinde Create Snapshot Volume seçerek Snapshotları oluşturabilirsiniz.

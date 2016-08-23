@@ -1,0 +1,11 @@
+﻿AWS S3 bucket’ını Nasıl Public Hale Getirebiliriz ?
+
+AWS S3 bucket’ını uygulamalarımıza ait dosyalarımızı key-file şeklinde tutabildiğimiz gibi Static Web Hosting amacıylada kullanabiliriz. Örneğin uygulamanıza ait html, js, imajlar, videolar S3 bucket atıp bunları public erişimli hale getirebilirsiniz.
+
+Bunun için birinci yöntem public hale getirmek istediğiniz herhangi bir dosyayı seçip bunun ile ilgili Properties/Permission sekmesinden Add More Permission düğmesine basarak herkese açma/indirme yetkisi verilir.
+
+Bu yöntem bucket içerisinde belli bir kaç dosyaya public yetkisi vermek istersek kullanacağımız bir yöntem olmalıdır. Bu işlemi tüm dosyalarda yapmak istiyorsak ve dosya sayısı çok ise bu işlem bizim için işkenceye dönüşmeye başlar.
+
+Bunun için ilgili bucket tıklanır ve Properties/Permission sekmesi seçilir Edit Bucket Policy düğmesine basılarak açılan ekrana bu bucket ile ilgili kural girilir. Kural üretmek için aşağıdaki adresten http://awspolicygen.s3.amazonaws.com/policygen.html kural üretilir.
+
+Bu kural sayesinde artık ismi geçen bucket içerisindeki tüm dosyalarınız public halde kullanabilirsiniz.

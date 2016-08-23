@@ -1,0 +1,17 @@
+﻿Two Factor Authentication ve TouchID
+
+Daha çok bankacılık internet ve mobil uygulamalar ile karşımıza çıkan bir kavram. Kullanıcı olarak bankacılık işlemi için sırası ile müşteri numaranızı ve şifrenizi giriyordunuz bu yeterli olmuyordu daha sonrasında size gelen SMS kodu ile doğrulama yaparak sisteme giriş yapabiliyordunuz. Bu ikili doğrulama yöntemine Two Factor Authentication deniyor.
+
+2 seviye doğrulamanın yetmediği yerlerde daha fazla sayıda doğrulama yaptırarak sistem giriş yaptırabilirsiniz. Önce Parola, sonra Şifre daha sonra SMS veya Cep Anahtar kodu.
+
+iPhone 5S ile birlikte gelen TouchID sayesinde artık bankacılık uygulamalarına parmak izi ile girebiliyoruz. Örn İşbank ve Finansbank mobil uygulamaları TouchID yeteneğine geçtikten sonra hiç şifre vs istemeden sisteme giriş yapabiliyorum. Eminim diğer bankalarda mobil uygulamalarına TouchID ekleyip kullanıcılarına bu kolaylığı sağlamışlardır.
+
+Peki iPhone’da kullandığımız bu TouchID nasıl çalışıyor ? Aslında iPhone sağladığı Local Authentication api’si ile oldukça kolay bir işlem.
+
+    Can the Device Evaluate the Chosen Policy : Aşağıdaki şekilde bir Local Authentication Context(LAContext) oluşturuyoruz. Bu context’in TouchID yeteneğin var mı diye kontrol ediyoruz.
+
+2. Authentication failed Check LAError value : Cihazın TouchID yeteneği yok ise aşağıdaki şekilde bir uyarı verir.
+
+3. Device evaluates the policy: Cihazın TouchID yeteneği varsa kural işletilerek kullanıcının karşısına TouchID girmesini söyleyen ekran çıkarılır.
+
+4. Was It Successfull => Execute Success Clousure Passed In / Does error allow another attempt : TouchID kullanıcının parmak izini algılayamaz ise kimlik tespiti yapamadım hatası verir. Eğer parmak izini algılar ise ya eşleştirir ya da bu parmak izinin bu cihaza ait olmadığını bildirir.

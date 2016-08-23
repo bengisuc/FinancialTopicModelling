@@ -1,0 +1,9 @@
+﻿iOS Adres Defterine Erişim
+
+iOS uygulama geliştirirken Telefon rehberine erişerek seçtiğiniz bir kişinin kontak bilgilerini almak ve bunu uygulamanızda kullanmak istiyorsunuz.
+
+Öncelikle adres defterine erişim için UIViewController sınıfımızın içerisinde ABPeoplePickerNavigationController tutuyoruz. Ve bunun bazı eventlerini yakalayabilmek için UIViewController sınıfımızı ABPeoplePickerNavigationControllerDelegate sınıfından türetiyoruz.
+
+viewDidLoad picker görüntülenecek ViewController olarak tanımlayarak picker delegate olarak bulunduğumuz UIViewController sınıfını veriyoruz.
+
+Bundan sonra yapmamız gereken Adres defterinden gelen eventleri yakalayacak fonksiyonları yazarak gerekli bilgileri ABRecordRef almak.

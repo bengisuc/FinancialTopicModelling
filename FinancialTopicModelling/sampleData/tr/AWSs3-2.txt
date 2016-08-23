@@ -1,0 +1,15 @@
+﻿AWS S3 Versioning
+
+Amazon S3 Nesne deposu olarak kullandığımızda karşımıza çıkan sorunlardan bazıları;
+
+    Nesne üzerinde değişiklikler yapabiliriz. Bu değişikliği yanlışlıkla yapmış isek nasıl eski versiyona döneceğiz.
+    Nesneyi yanlışlıkla sildik. Nesneyi nasıl geri alacağız.
+    Nesne üzerinde ne gibi değişiklikler yapmışız. Nesneleri nasıl karşılaştırabileceğiz.
+
+Bunun için AWS S3 bize versiyonlama özelliği sunuyor. Attığımız bir resmin anahtar=photo.gif aynı iken , versionID(121212, 111111) farklı oluyor. Bu sayede nesnenin tüm versiyonlarını S3'de saklayabiliyoruz.
+
+Versiyon Enabled hale getirmek için ya koddan ya da ekrandan Versiyoning özelliğini aktif hale getirebilirsiniz.
+
+Veya AWS S3 console’undan Bucket/Properties altından Versioning Enabled hale getirilmesi gerekiyor.
+
+Bundan sonra key ile S3 bucket ile yaptığımız tüm işlemler versiyon olarak tutulmaktadır. Bucket’daki versiyon/key ve buradan objelere aşağıdaki koddan erişebilirsiniz.

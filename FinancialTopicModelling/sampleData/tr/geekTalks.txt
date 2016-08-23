@@ -1,0 +1,18 @@
+﻿GeekTalks (Go Sunumu)
+
+GeekTalks Bilkent Cyberpark Kıvılcım’da düzenlenen bir etkinlik. Bugünkü sunumu da Koding firmasından Fatih Arslan Go dilini anlattı.
+
+Öncesinde GeekTalks’tan biraz bahsedelim. Sunum öncesinde insanların birbirlerini tanıyabilecekleri, projelerini anlatabilecekleri bir ortam oluşturmaya çalışmışlar. Ya geliştiriciler birbirleri ile konuşuyorlardı veya bir tahta karşısında birbirlerine projelerini anlatıyorlardı.
+
+Fatih anladığım kadarı ile Go camiasında oldukça popüler birisi. Ayrıca Koding sunucu tarafındaki bir çok projede Go ile uygulama geliştirmiş ve geliştiriyor. Vim-Go editörününüde geliştiren kişi https://github.com/fatih/vim-go ,
+
+Koding’de geliştiricilere SaaS olarak geliştirme ortamı sağlayan, sanal sunucular sağlayan bir ortam. Yazılım geliştirme ortamının buluta taşınmasıda diyebiliriz.
+
+Sunum’dan anladıklarım;
+
+    Go dili Google tarafından çok sağlam bir ekip(Ken Thompson, Rob Pike, Robert Griesemer) tarafından günümüz problemleri için geliştirilmiş bir dil. Aşağıda dili geliştiren ekip ile ilgili video’yu izleyebilirsiniz.
+
+    Go Dili Google’da çalışan bir çok mühendisin birlikte proje geliştirmesini, bu projelerin ölçeklenebilir, dağıtık makinelerde çalışıyor olması ve bunların birbirleri ile iletişim gereksinimin daha basit ve hızlı bir şekilde gerçekleştirmesi için geliştirilmiş bir dilmiş.
+    Go dili Açık Kaynak Kodlu, Çok büyük kod parçalarını bile çok hızlı derliyor ve oluşturduğu dosya tek. Bütün bağımlılıklarını bu dosya içerisinde tutuyor. Java, C, vb.. dillerdeki gibi bağımlılıklarını ayrı ayrı paketlerde tutmuyor.
+    Concurrent, Garbage Collected bir dil.
+    C dilinin basitliğini, Javascript dilinin esnekliğini, Java dilinin static type, interface(daha esnek), Garbage Collection almış ve bunun üzerine hızlı derleme gücünü eklemiş yeni bir Dil.

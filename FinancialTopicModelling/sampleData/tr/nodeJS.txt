@@ -1,0 +1,35 @@
+﻿Node.js ile Twitter Bilgilerini Gerçek Zamanlı İşleme
+
+Twitter sürekli bir akış var, Türkiye’den gerçekleşen bu akışı Stream olarak alıp gerçek zamanlı olarak işleyebilir miyiz ? Bu bilgiyi nasıl görüntüleyebiliriz. Aşağıdaki linkte bunun küçük bir örneğini görebilirsiniz.
+
+http://ec2-52-18-63-162.eu-west-1.compute.amazonaws.com:8085/
+
+Aslında bu işlem o kadar da zor değil. Twitter zaten bize bir stream api’si veriyor. https://dev.twitter.com/streaming/public Yapmamız gereken bu servisi kullanarak Türkiye’den gelen twitleri filtrelemek. Daha sonrasında bu bilgileri socket aracılığı ile kullanıcının açtığı web sayfasına göndermek.
+
+Uygulama kişinin sayfaya bağlandığından itibaren twit bilgilerini tarayıcıdan alıp işlediği için her kullanıcı bu sayfada kaldığı kadar twit bilgisini analiz edecektir. Özetle bu bilgiler bir yerlerde saklamıyorum bu örnekte, ekranı kapatıp tekrar açtığımızda uygulama twit analizine sıfırdan başlıyor.
+
+Tabi siz isterseniz bu bilgileri MongoDB’de tutup buraya bir ElasticSearch sunucusu kurup kullanıcılara gelen twitler üzerinde analiz yapmalarınıda sağlatabilirsiniz.
+
+Bu uygulamayı nasıl yaptık ? Sunucu geliştirme ortamı Node.js. Kullandığımız kütüphaneler twit, socket.io, express, processing, ejs template, Deploy ettiğimiz ortam Amazon EC2 makinesi.
+
+Twitter Stream ile Public Twitleri Dinleme
+
+npm install twit ile Node.js ilgili modül indirilir. Aşağıda görüldüğü gibi bir tane Twit objesi oluşturup Stream apisini kullanabilmek için https://apps.twitter.com/ adresinden alacağımız access keylerini bu objeye vermemiz gerekiyor.
+
+Daha sonrasında Türkiye coğrafi alanını Enlem/Boylam bilgisini Twit Objesine stream filtresi olacak şekilde verip bu stream nesnesini dinlemeye başlıyoruz. Bize sadece Türkiyeden atılan twitlerle ilgileniyoruz.
+
+Her twit geldiğinde socketArray yani bağlı client sayısı kadar dönüp tüm clientlara bu twit verisini yayınlıyoruz.
+
+Web Application
+
+Web uygulaması için npm install express, socket.io ve ejs modülleri indirilir.
+
+Bir tane 8080 portunu dinleyen web uygulaması oluşturuyoruz. Bu uygulamanın view engine ve js,css klasörlerinin adreslerini tanımlıyoruz. Bu uygulamada root path çağrıldığında index.ejs dosyasının render edilmesini sağlatıyoruz. Bu kadarlık kısım bizim uygulamamızın 8080 portunda static bir HTML sayfası renderlemesi için yeterli.
+
+Socket.io
+
+socket.io 8080 portunu dinlemesini sağlayıp. 8080 portundan uygulamayı açan kullanıcıların socket bilgilerini socketArray içerisinde saklar. Bu socket bilgilerini daha sonra kullanıcıların ekranlarını refresh etmek için kullanacağız.
+
+Tarayıcıda ilk uygulamayı açtığımızda ilgili sunucuya socket bağlantı isteği gönderilir. Bu bağlantı kurulduktan sonra Client msg ile yayınlanan verileri dinleyerek bu verileri Client görselleştirme için kullanır.
+
+Bundan sonraki kısım tamamen sizin görselleştirmenize kalmış. Hangi veriler ile ilgileniyor iseniz o verileri analiz edip ekranda kullanıcılarınıza gösterebilirsiniz.

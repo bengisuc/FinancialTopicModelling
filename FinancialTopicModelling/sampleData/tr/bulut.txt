@@ -1,0 +1,15 @@
+﻿Bulut Hizmetlerinde IaaS, PaaS, SaaS nedir ?
+
+Amazon(AWS), Google(Cloud Platform), Microsoft(Azure), IBM(SoftLayer, Bluemix) gibi büyük firmaların bulut hizmetlerindeki servis katmanları birbirleriyle aynı mantıktadır.
+
+Amaç katman katman olan bu yapıların geliştiriciden soyutlanarak herkesin rahatça kullanabileceği ortamlar oluşturmaktır. Aşağıda bu sorumlulukların kimin sorumluluğunda olduğunu anlatan bir resim görmektesiniz.
+
+On-Premises: Yazılımlarınızın sizin veya firmanın bilgisayarlarına yüklendiği kısımda tüm katmanların sorumluluğu sizin ekibinizin üzerindedir. Bir sistem ekibiniz olması gerekir. Bu sistem ekibi sunucuları, veritabanlarını, güvenliği, network’ü bilmesi ve kurması gerekmektedir. Veritabanının yedeklerinin alınmasını sağlaması, işletim sisteminin güncel sürümlerinin yüklenmesini sağlaması gerekmektedir. Ayrıca sistem ekibinin JVM, dll, plugin gibi yazılımın ihtiyacı olan Run-Time sisteme kurmaları gerekmektedir.
+
+Infrastructure As A Service: Size bulut üzerinden sanal Compute, Storage, Networking satıldığı, kiralandığı bulut hizmeti olarak düşünebilirsiniz. Bilgisayar, Disk ve Network kartları almak yerine bunları Sanal olarak bulut’tan kiralayıp üzerine istediğiz işletim sistemini kurup yolunuza devam edebilirsiniz.
+
+Platform As A Service: Bulut üzerinde direk bir java, ruby, node uygulaması geliştirmek istiyorsunuz ve işletim sistemi, network, sunucu gibi sistemler ile uğraşmak istemiyorsunuz, Sadece uygulamanızı geliştirmek ile uğraşıyorsunuz sonrada uygulamanızın run-time dosyalarını ilgili platforma atıp çalışmasını sağlıyorsunuz.
+
+Software As A Service: Uygulamaların bulut’tan hizmet vermesine SaaS denir. Kullanıcılar sadece uygulama arayüzlerine erişebilir. Kendilerine ait bilgileri bu yazılımlara girerek, bilgilerini bulut üzerinde saklar ve buradan kullanırlar.
+
+Örneğin: GoogleDocs, Evernote uygulamalar SaaS olarak düşünebiliriz.

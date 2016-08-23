@@ -1,0 +1,19 @@
+﻿Cybersoft’da Şirket İçi AWS Eğitimi (GiB Konferans Salonu)
+
+Şirket içi bilgi paylaşım amacıyla Cybersoft GiB ekibine Ferhat Savcı ile birlikte AWS ve Mikroservis eğitimi verdik.
+
+Sunum 3 kısımdan oluşuyordu.
+
+    AWS Giriş (Slaytlı anlatım)
+    AWS Demo (EC2 , S3)
+    Mikroservis (Slaytlı anlatım)
+
+GiB Konferans Salonuna 1 saat önceden ulaşmanın bizim için çok faydası oldu, Murphy Kanunları’daki terslikler sırası ile başımıza gelmeye başladı.
+
+MacBook HDMI kablosuna taktım. MacBook kendi kendine resetledi. Ekran karardı. Projeksiyon cihazının RGB çıktısı iptal etmişler. RGB dönüştürücüyüde kullanamadım. Macbook üzerinden sunum yapamayacağımı anladım. Ordaki mevcut HP Laptop üzerinden sunum yapmam gerekiyordu. 2nci bir problemde Internet’in olmaması. Sunumu HP makineye taşımam ve AWS Demo kısmını gösterebilmem için internet gerekiyordu.
+
+Internet için yanımda WINN taşımanın avantajını hemen yaşadık. Kendi bilgisayarımı ve sunum yapacağım HP makinesini bu WINN’a bağlayarak internet sorununu aştım.
+
+Keynote hazırladığım sunumun Windows’ta çalışabilmesi için Powerpoint’e dönüştürerek S3 üzerinden diğer makine aktardım. Sunum işi tamamdı. AWS Demo kısmında da çoğu işi konsol üzerinden yapacağım için bu kısmıda sorunsuz hallettik.
+
+Genel olarak sunumun iyi geçtiğini düşünüyorum. AWS ve Microservis başlangıç seviyesi olarak anlatabildiğimizi düşünüyorum.

@@ -1,0 +1,10 @@
+﻿Design Patterns-22 (Visitor)
+
+Visitor örüntüsü denilince aklımıza hemen SceneGraph gelir. Yani Sahne veya UI nesnelerinin Composite yapıda iç içe tutulduğu yapılardır. Visitor bütün bu nesnelerin nasıl gezilmesi gerektiğini soyutlamayı sağlayan bir örüntüdür.
+
+    Rendering Visitor: Kamera’nın bakış açısından ZBuffer olarak en uzaktaki nesneden en yakındaki nesneyi gezecek şekilde render() metodu çağrılır.
+    Intersection: ZBuffer olarak Mouse’un en öndeki nesneden en arkadaki nesneyi gezecek şekilde intersect() metodu çağrılırki en öndeki nesne seçilsin.
+
+İhtiyaca göre visitor çeşitlilikleri oluşturulabilir. Örneğin aşağıdaki resimde OpenSceneGraph’ta yer alan visitor sınıflarını görebilirsiniz. Aynı iterator örüntüsünde olduğu gibi ağaç yapısında olan Node’ları gezmek için kullanılır.
+
+Bu visitor sınıfları genelde travarse()/visit() fonksiyonunda recursive olarak Node’lar içinde dönerek gerçekleştirilir.
